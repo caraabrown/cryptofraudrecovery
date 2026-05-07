@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Fraud Recovery Toolkit — Pig Butchering Scam Action Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080d16;
+  --bg2: #0d1525;
+  --bg3: #121e32;
+  --teal: #00c9a7;
+  --teal-dim: #00896f;
+  --amber: #f59e0b;
+  --amber-dim: #92600a;
+  --coral: #ff5c5c;
+  --blue: #4a9eff;
+  --blue-dim: #1a4a7a;
+  --text: #e8edf5;
+  --text-muted: #7a8ca8;
+  --border: rgba(255,255,255,0.08);
+  --border-teal: rgba(0,201,167,0.3);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* HEADER */
+.site-header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 2rem;
+}
+.site-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  color: var(--teal);
+  white-space: nowrap;
+}
+.site-title span { color: var(--text-muted); font-size: 13px; font-family: 'IBM Plex Sans', sans-serif; letter-spacing: 0; font-weight: 400; display: block; margin-top: -4px; }
+
+/* TABS */
+.nav-tabs {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  overflow-x: auto;
+}
+.nav-tabs li { flex-shrink: 0; }
+.nav-tabs button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  padding: 0 18px;
+  height: 64px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.nav-tabs button:hover { color: var(--text); }
+.nav-tabs button.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+/* HERO BANNER */
+.hero {
+  background: linear-gradient(135deg, #0d1525 0%, #091020 100%);
+  border-bottom: 1px solid var(--border-teal);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.hero-inner { max-width: 800px; margin: 0 auto; }
+.hero-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--coral);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 40px;
+  background: var(--coral);
+  opacity: 0.5;
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.hero h1 em { color: var(--teal); font-style: normal; }
+.hero p {
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+.stat-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.stat {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 22px;
+  text-align: center;
+  min-width: 140px;
+}
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+  display: block;
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* MAIN CONTENT */
+.main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* SECTION HEADERS */
+.section-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-header h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.section-header p { color: var(--text-muted); font-size: 14px; }
+
+/* CARDS */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.card-teal { border-left: 3px solid var(--teal); }
+.card-amber { border-left: 3px solid var(--amber); }
+.card-coral { border-left: 3px solid var(--coral); }
+.card-blue { border-left: 3px solid var(--blue); }
+
+/* PROTOCOL STEPS */
+.steps { display: flex; flex-direction: column; gap: 1rem; }
+.step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: border-color 0.2s;
+}
+.step.done { border-color: var(--teal-dim); opacity: 0.7; }
+.step-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  color: var(--teal);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.step.done .step-num {
+  background: var(--teal-dim);
+  border-color: var(--teal);
+  color: #fff;
+}
+.step-num svg { display: none; }
+.step.done .step-num .num-label { display: none; }
+.step.done .step-num svg { display: block; }
+.step-content h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.35rem;
+}
+.step-content p { font-size: 14px; color: var(--text-muted); }
+.step-content ul { font-size: 14px; color: var(--text-muted); padding-left: 1.2rem; margin-top: 0.4rem; }
+.step-content ul li { margin-bottom: 0.25rem; }
+.priority-badge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.priority-now { background: rgba(255,92,92,0.15); color: var(--coral); border: 1px solid rgba(255,92,92,0.3); }
+.priority-week { background: rgba(245,158,11,0.15); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+.priority-ongoing { background: rgba(74,158,255,0.15); color: var(--blue); border: 1px solid rgba(74,158,255,0.3); }
+
+/* LETTER BUILDER */
+.builder-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 768px) { .builder-layout { grid-template-columns: 1fr; } }
+.info-panel {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  position: sticky;
+  top: 80px;
+}
+.info-panel h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--teal);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.field-group { margin-bottom: 1rem; }
+.field-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.field-input {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+.field-input:focus { outline: none; border-color: var(--teal); }
+.field-input::placeholder { color: var(--text-muted); opacity: 0.5; }
+
+.letter-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+.letter-tab {
+  padding: 7px 16px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.letter-tab:hover { border-color: var(--teal-dim); color: var(--text); }
+.letter-tab.active { background: rgba(0,201,167,0.12); border-color: var(--teal); color: var(--teal); }
+
+.letter-pane { display: none; }
+.letter-pane.active { display: block; }
+.letter-header {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 10px 10px 0 0;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.letter-agency {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+.letter-url { font-size: 12px; color: var(--teal); }
+.letter-body {
+  width: 100%;
+  min-height: 380px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 1.25rem;
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.8;
+  resize: vertical;
+}
+.letter-body:focus { outline: none; border-color: var(--teal); }
+.letter-actions { display: flex; gap: 8px; margin-top: 10px; }
+.btn {
+  padding: 9px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+}
+.btn-teal { background: rgba(0,201,167,0.1); border-color: var(--teal); color: var(--teal); }
+.btn-teal:hover { background: rgba(0,201,167,0.2); }
+.btn-teal.copied { background: rgba(0,201,167,0.25); }
+.btn-ghost { background: transparent; border-color: var(--border); color: var(--text-muted); }
+.btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
+
+/* EVIDENCE */
+.evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+@media (max-width: 640px) { .evidence-grid { grid-template-columns: 1fr; } }
+.evidence-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+.evidence-card h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.evidence-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; }
+.evidence-card .finding {
+  font-size: 12px;
+  margin-top: 0.75rem;
+  padding: 8px 12px;
+  background: rgba(245,158,11,0.07);
+  border-left: 2px solid var(--amber);
+  border-radius: 0 6px 6px 0;
+  color: #e0b060;
+}
+.code-snippet {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--teal);
+  overflow-x: auto;
+  margin-top: 0.75rem;
+  white-space: pre;
+}
+.verdict-box {
+  background: rgba(255,92,92,0.06);
+  border: 1px solid rgba(255,92,92,0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+.verdict-box h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--coral);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+.verdict-box p { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+
+/* CONGRESS */
+.official-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.official-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.official-card:hover { border-color: var(--teal-dim); }
+.official-card.selected { border-color: var(--teal); background: rgba(0,201,167,0.06); }
+.official-card .check {
+  position: absolute;
+  top: 10px; right: 12px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  transition: all 0.2s;
+}
+.official-card.selected .check { background: var(--teal); border-color: var(--teal); color: #fff; }
+.official-name {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.official-role { font-size: 11px; color: var(--text-muted); }
+.official-why { font-size: 11px; color: var(--teal-dim); margin-top: 6px; }
+
+.select-all-row { display: flex; gap: 8px; margin-bottom: 1rem; align-items: center; }
+.select-all-row span { font-size: 12px; color: var(--text-muted); }
+
+/* FOOTER */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 4rem;
+}
+.site-footer a { color: var(--teal); text-decoration: none; }
+.notice-bar {
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 12.5px;
+  color: #c89040;
+  margin-bottom: 1.5rem;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-title">
+      CRYPTO FRAUD RECOVERY
+      <span>Pig Butchering Scam Action Toolkit</span>
+    </div>
+    <nav>
+      <ul class="nav-tabs">
+        <li><button class="active" onclick="switchTab('protocol', this)">Protocol</button></li>
+        <li><button onclick="switchTab('letters', this)">Build Your Reports</button></li>
+        <li><button onclick="switchTab('evidence', this)">Evidence</button></li>
+        <li><button onclick="switchTab('congress', this)">Demand Action</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Confirmed Fraud Operation</div>
+    <h1>You Were <em>Targeted.</em><br>Here Is What To Do.</h1>
+    <p>This toolkit gives victims of pig butchering crypto scams a step-by-step recovery protocol, pre-written government reports, technical evidence, and letters to elected officials — all in one place.</p>
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-num">$5.8B</span>
+        <span class="stat-label">US losses in 2024</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">200K+</span>
+        <span class="stat-label">Identified cases</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">276</span>
+        <span class="stat-label">Arrests Apr 2026</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">$562M</span>
+        <span class="stat-label">FBI saved victims</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+
+<!-- ============ TAB 1: PROTOCOL ============ -->
+<div id="tab-protocol" class="tab-panel active">
+  <div class="section-header">
+    <h2>Recovery Protocol</h2>
+    <p>Click a step number to mark it complete. Work through these in order — sequence matters.</p>
+  </div>
+
+  <div class="notice-bar">
+    This is not legal advice. Consult an attorney for your specific situation. Filing reports costs nothing and creates the legal paper trail that makes recovery possible.
+  </div>
+
+  <div class="steps">
+
+    <div class="step" id="s1">
+      <div class="step-num" onclick="toggleStep('s1')">
+        <span class="num-label">1</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-now">Do This Today</span>
+        <h3>Stop All Deposits Immediately</h3>
+        <p>Do not send any more money to the platform under any circumstances. Scammers will attempt to collect more by telling you that you need to pay "taxes," "verification fees," or "insurance" to unlock your frozen funds. <strong style="color:var(--coral)">These are additional theft mechanisms.</strong> There is no fee that will unlock your funds.</p>
+      </div>
+    </div>
+
+    <div class="step" id="s2">
+      <div class="step-num" onclick="toggleStep('s2')">
+        <span class="num-label">2</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-now">Do This Today</span>
+        <h3>Preserve All Evidence</h3>
+        <p>Screenshot and save everything before it disappears:</p>
+        <ul>
+          <li>Your account balance screen on the platform</li>
+          <li>The withdrawal rejection / freeze message</li>
+          <li>All chat messages with the person who recruited you</li>
+          <li>All deposit confirmations and transaction receipts</li>
+          <li>The platform's URL, name, and any contact info shown</li>
+          <li>Your blockchain transaction hash / TX ID (from your wallet or exchange)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step" id="s3">
+      <div class="step-num" onclick="toggleStep('s3')">
+        <span class="num-label">3</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-now">File First</span>
+        <h3>File with the FBI — IC3.gov</h3>
+        <p>Go to <strong style="color:var(--teal)">ic3.gov/Home/FileComplaint</strong> and file your complaint. This takes 15–20 minutes. Save your IC3 complaint number — you will use it in every other filing. For losses over $100,000, the IC3 Recovery Asset Team can initiate emergency freeze procedures.</p>
+      </div>
+    </div>
+
+    <div class="step" id="s4">
+      <div class="step-num" onclick="toggleStep('s4')">
+        <span class="num-label">4</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-week">Within 48 Hours</span>
+        <h3>File with the FTC</h3>
+        <p>Go to <strong style="color:var(--teal)">reportfraud.ftc.gov</strong> — select Investment Scam → Cryptocurrency. Reference your IC3 number. The FTC aggregates reports to identify patterns and can issue consumer alerts.</p>
+      </div>
+    </div>
+
+    <div class="step" id="s5">
+      <div class="step-num" onclick="toggleStep('s5')">
+        <span class="num-label">5</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-week">Within 48 Hours</span>
+        <h3>File with Your State Regulator</h3>
+        <p>California residents: file at <strong style="color:var(--teal)">dfpi.ca.gov/file-a-complaint</strong> (DFPI) and <strong style="color:var(--teal)">oag.ca.gov</strong> (Attorney General). Other states: search "[your state] financial consumer complaint" to find the right agency. Include your IC3 number in all filings.</p>
+      </div>
+    </div>
+
+    <div class="step" id="s6">
+      <div class="step-num" onclick="toggleStep('s6')">
+        <span class="num-label">6</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-week">Within 48 Hours</span>
+        <h3>Contact Your Bank or Payment App</h3>
+        <p>If you sent funds via Zelle, wire transfer, or bank ACH: call your bank's fraud line immediately and request a fraud dispute. If you used Cash App, Venmo, or PayPal: use their in-app fraud reporting. Provide your IC3 complaint number. Banks are more responsive when a federal complaint exists. Use the pre-written letter in the "Build Your Reports" tab.</p>
+      </div>
+    </div>
+
+    <div class="step" id="s7">
+      <div class="step-num" onclick="toggleStep('s7')">
+        <span class="num-label">7</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-week">Within 72 Hours</span>
+        <h3>Contact Your Crypto Exchange</h3>
+        <p>If you used Coinbase, Kraken, Binance.US, or another licensed exchange to send funds: contact their fraud/compliance team with the destination wallet address and your TX hash. Exchanges have blockchain tracing tools and may be able to flag the receiving wallet or cooperate with law enforcement.</p>
+      </div>
+    </div>
+
+    <div class="step" id="s8">
+      <div class="step-num" onclick="toggleStep('s8')">
+        <span class="num-label">8</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-week">This Week</span>
+        <h3>Consider a Crypto Fraud Attorney</h3>
+        <p>For losses above $5,000, consult a crypto fraud or asset recovery attorney. Many work on contingency (no fee unless they recover funds). Civil litigation, DOJ forfeiture proceedings, and OFAC-related claims are all viable paths. The DOJ's November 2025 Scam Center Strike Force has seized over $400M — victims can file claims against seized assets.</p>
+      </div>
+    </div>
+
+    <div class="step" id="s9">
+      <div class="step-num" onclick="toggleStep('s9')">
+        <span class="num-label">9</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-ongoing">Ongoing</span>
+        <h3>Write to Your Elected Officials</h3>
+        <p>Congressional pressure has driven every major enforcement action against these operations. Use the "Demand Action" tab to generate personalized letters to the Senate Banking Committee, House Financial Services Committee, and your state's federal senators. Volume matters — 500 constituent letters create urgency that individual complaints do not.</p>
+      </div>
+    </div>
+
+    <div class="step" id="s10">
+      <div class="step-num" onclick="toggleStep('s10')">
+        <span class="num-label">10</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="step-content">
+        <span class="priority-badge priority-ongoing">Warn Others</span>
+        <h3>Report the Platform Publicly</h3>
+        <p>Submit the scam website to these resources to protect others:</p>
+        <ul>
+          <li><strong style="color:var(--text)">Google Safe Browsing:</strong> safebrowsing.google.com/safebrowsing/report_phish</li>
+          <li><strong style="color:var(--text)">AARP Fraud Watch:</strong> aarp.org/fraudwatchnetwork</li>
+          <li><strong style="color:var(--text)">Global Anti-Scam:</strong> globalantiscam.org</li>
+          <li><strong style="color:var(--text)">Chainabuse:</strong> chainabuse.com (for wallet addresses)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ TAB 2: LETTER BUILDER ============ -->
+<div id="tab-letters" class="tab-panel">
+  <div class="section-header">
+    <h2>Build Your Reports</h2>
+    <p>Fill in your information once. All letters update automatically. Edit any letter directly before copying.</p>
+  </div>
+
+  <div class="builder-layout">
+    <div class="info-panel">
+      <h3>Your Information</h3>
+      <div class="field-group">
+        <label class="field-label">Full Name</label>
+        <input class="field-input" id="f-name" placeholder="Your full name" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">City, State</label>
+        <input class="field-input" id="f-location" placeholder="Oakland, CA" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Email</label>
+        <input class="field-input" id="f-email" placeholder="your@email.com" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Phone</label>
+        <input class="field-input" id="f-phone" placeholder="(555) 000-0000" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Amount Lost (USD)</label>
+        <input class="field-input" id="f-amount" placeholder="e.g. $1,400" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Platform Name</label>
+        <input class="field-input" id="f-platform" placeholder="DSJ Exchange / DSJEX" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Platform URL</label>
+        <input class="field-input" id="f-url" placeholder="tra818.tw" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Date of Deposit</label>
+        <input class="field-input" id="f-date" placeholder="e.g. March 12, 2025" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Date Withdrawal Blocked</label>
+        <input class="field-input" id="f-freeze" placeholder="e.g. April 3, 2025" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Wallet / TX Hash (if known)</label>
+        <input class="field-input" id="f-wallet" placeholder="Paste TX ID or wallet address" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">How Recruited</label>
+        <input class="field-input" id="f-recruit" placeholder="e.g. WhatsApp, dating app" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Bank / Payment App Used</label>
+        <input class="field-input" id="f-bank" placeholder="e.g. Schwab / Zelle" oninput="updateLetters()">
+      </div>
+      <div class="field-group">
+        <label class="field-label">IC3 Complaint # (after filing)</label>
+        <input class="field-input" id="f-ic3" placeholder="Will appear after IC3 filing" oninput="updateLetters()">
+      </div>
+    </div>
+
+    <div>
+      <div class="letter-tabs">
+        <button class="letter-tab active" onclick="switchLetter('ic3', this)">FBI / IC3</button>
+        <button class="letter-tab" onclick="switchLetter('ftc', this)">FTC</button>
+        <button class="letter-tab" onclick="switchLetter('dfpi', this)">CA DFPI</button>
+        <button class="letter-tab" onclick="switchLetter('bank', this)">Bank Dispute</button>
+        <button class="letter-tab" onclick="switchLetter('cashapp', this)">Cash App</button>
+      </div>
+
+      <!-- IC3 -->
+      <div id="letter-ic3" class="letter-pane active">
+        <div class="letter-header">
+          <span class="letter-agency">FBI Internet Crime Complaint Center</span>
+          <span class="letter-url">ic3.gov/Home/FileComplaint</span>
+        </div>
+        <textarea class="letter-body" id="text-ic3"></textarea>
+        <div class="letter-actions">
+          <button class="btn btn-teal" onclick="copyLetter('text-ic3', this)">Copy Letter</button>
+          <button class="btn btn-ghost" onclick="openLink('https://www.ic3.gov/Home/FileComplaint')">Open IC3 Site</button>
+        </div>
+      </div>
+
+      <!-- FTC -->
+      <div id="letter-ftc" class="letter-pane">
+        <div class="letter-header">
+          <span class="letter-agency">Federal Trade Commission</span>
+          <span class="letter-url">reportfraud.ftc.gov</span>
+        </div>
+        <textarea class="letter-body" id="text-ftc"></textarea>
+        <div class="letter-actions">
+          <button class="btn btn-teal" onclick="copyLetter('text-ftc', this)">Copy Letter</button>
+          <button class="btn btn-ghost" onclick="openLink('https://reportfraud.ftc.gov')">Open FTC Site</button>
+        </div>
+      </div>
+
+      <!-- DFPI -->
+      <div id="letter-dfpi" class="letter-pane">
+        <div class="letter-header">
+          <span class="letter-agency">CA Dept. of Financial Protection & Innovation</span>
+          <span class="letter-url">dfpi.ca.gov/file-a-complaint</span>
+        </div>
+        <textarea class="letter-body" id="text-dfpi"></textarea>
+        <div class="letter-actions">
+          <button class="btn btn-teal" onclick="copyLetter('text-dfpi', this)">Copy Letter</button>
+          <button class="btn btn-ghost" onclick="openLink('https://dfpi.ca.gov/file-a-complaint')">Open DFPI Site</button>
+        </div>
+      </div>
+
+      <!-- BANK -->
+      <div id="letter-bank" class="letter-pane">
+        <div class="letter-header">
+          <span class="letter-agency">Bank / Payment App Fraud Dispute</span>
+          <span class="letter-url">Call fraud line first, then send this as follow-up</span>
+        </div>
+        <textarea class="letter-body" id="text-bank"></textarea>
+        <div class="letter-actions">
+          <button class="btn btn-teal" onclick="copyLetter('text-bank', this)">Copy Letter</button>
+        </div>
+      </div>
+
+      <!-- CASHAPP -->
+      <div id="letter-cashapp" class="letter-pane">
+        <div class="letter-header">
+          <span class="letter-agency">Cash App / Square Fraud Report</span>
+          <span class="letter-url">cash.app/help — report in app first, then escalate</span>
+        </div>
+        <textarea class="letter-body" id="text-cashapp"></textarea>
+        <div class="letter-actions">
+          <button class="btn btn-teal" onclick="copyLetter('text-cashapp', this)">Copy Letter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TAB 3: EVIDENCE ============ -->
+<div id="tab-evidence" class="tab-panel">
+  <div class="section-header">
+    <h2>Technical Evidence of Fraud</h2>
+    <p>This section documents why DSJ Exchange (tra818.tw) is a fraudulent shell with no real trading infrastructure. Share this with law enforcement, attorneys, and your bank.</p>
+  </div>
+
+  <div class="verdict-box">
+    <h3>Summary Finding</h3>
+    <p>DSJ Exchange (DSJEX), operating at tra818.tw and affiliated with the "BG Wealth Sharing" operation, is a front-end shell website with no real cryptocurrency trading infrastructure. All account balances, trading charts, and price data displayed on the platform are fabricated. The site is designed to accept deposits and block all withdrawals. This is consistent with a "pig butchering" (sha zhu pan) confidence fraud scheme.</p>
+  </div>
+
+  <div class="evidence-grid">
+
+    <div class="evidence-card">
+      <h4>Finding 1 — Identical Page Architecture</h4>
+      <p>The Deposit page, Futures Trading page, and Asset Wallet page all have byte-for-byte identical HTML structure. A real exchange would have fundamentally different infrastructure for each function.</p>
+      <div class="finding">All three pages load from the same shell — no unique functionality per section.</div>
+    </div>
+
+    <div class="evidence-card">
+      <h4>Finding 2 — ECharts Used for "Trading" Data</h4>
+      <p>Every page loads 6 copies of the ECharts JavaScript library. ECharts is a data visualization tool — it draws charts. It is not a trading engine, not an order book, and not connected to any real market feed.</p>
+      <div class="finding">Charts are drawn by a graphics library. They do not reflect real trades.</div>
+    </div>
+
+    <div class="evidence-card">
+      <h4>Finding 3 — Web3 Library is Decorative Only</h4>
+      <p>The Web3.js library (used for real blockchain interaction) appears as a "prefetch" link only — meaning it is loaded as a visual decoy but never actually executed during page load. There is no functional blockchain connection.</p>
+      <div class="finding">Web3 is listed but not active. No real blockchain connectivity exists.</div>
+    </div>
+
+    <div class="evidence-card">
+      <h4>Finding 4 — Copy-Paste Construction</h4>
+      <p>A Cloudflare analytics beacon token is identical across all pages of the site. This is a single token that should be unique per site — its repetition confirms the site was built by copy-pasting a single template.</p>
+      <div class="finding">Token 2534f64338f6431c9fdd0da917dcf8c3 repeated on every page.</div>
+    </div>
+
+    <div class="evidence-card">
+      <h4>Finding 5 — No Real Backend Infrastructure</h4>
+      <p>The entire site is a single-page application (SPA) shell. All logic is loaded from external JavaScript bundles on their own server, which can be deleted or rewritten at any time. There is no evidence of a real exchange backend, order matching engine, or custody infrastructure.</p>
+      <div class="finding">Platform can be shut down and all records erased instantly.</div>
+    </div>
+
+    <div class="evidence-card">
+      <h4>Finding 6 — reCAPTCHA Hidden by Design</h4>
+      <p>The site's source code explicitly hides Google's reCAPTCHA badge using CSS (width:0, height:0). This technique hides security verification from users while potentially using it to avoid automated fraud detection systems.</p>
+      <div class="finding">Security UI deliberately concealed from victims.</div>
+    </div>
+
+    <div class="evidence-card">
+      <h4>Finding 7 — Withdrawal Blocked Without Cause</h4>
+      <p>Account freezes on this platform are applied unilaterally, with no legal basis, no regulatory disclosure, and no appeal process. This is the operational signature of a pig butchering scam — deposits are always enabled; withdrawals are structurally impossible.</p>
+      <div class="finding">No real exchange freezes accounts without documented regulatory cause.</div>
+    </div>
+
+    <div class="evidence-card">
+      <h4>Finding 8 — Consistent with Known Scam Architecture</h4>
+      <p>This platform's structure matches documented patterns in FBI, FTC, and INTERPOL reports on pig butchering operations: fake exchange UI, ECharts-rendered fake price data, Web3 branding without function, and a deposit-only money flow.</p>
+      <div class="finding">Matches FBI and FTC-documented pig butchering platform template exactly.</div>
+    </div>
+
+  </div>
+
+  <div class="card card-teal">
+    <p style="font-size:13.5px; color: var(--text-muted);">
+      <strong style="color:var(--teal)">What this means for your report:</strong> You can state in your IC3, FTC, and DFPI filings that you have independently obtained and analyzed the platform's HTML source code, which confirms the absence of real trading infrastructure. Attach screenshots of the source code alongside your complaints. The technical evidence supports a finding of intentional fraud, not negligence.
+    </p>
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <div class="section-header">
+      <h2>About Pig Butchering Scams</h2>
+      <p>Context to include in your reports and share with others.</p>
+    </div>
+    <div class="card">
+      <p style="font-size:14px; color: var(--text-muted); line-height:1.85;">
+        "Pig butchering" (sha zhu pan) is a long-duration investment confidence fraud originating in Southeast Asia. Criminal networks — many operating from forced labor compounds in Cambodia, Myanmar, and Laos — recruit victims through social media, dating apps, and messaging platforms. They build trust over weeks or months before introducing a "trading platform" that appears legitimate. Victims are encouraged to deposit progressively larger sums. When they attempt to withdraw, accounts are frozen. The FBI estimates $5.8 billion was lost by American victims in 2024 alone. The UN estimates over 200,000 people are held in scam compounds, many as trafficking victims forced to run these operations.
+        <br><br>
+        In November 2025, the DOJ established a dedicated Scam Center Strike Force and has since seized over $400 million in cryptocurrency. In April 2026, a coordinated takedown resulted in 276 arrests. Victims who file IC3 complaints may be eligible to file claims against seized assets.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TAB 4: CONGRESS ============ -->
+<div id="tab-congress" class="tab-panel">
+  <div class="section-header">
+    <h2>Demand Action from Elected Officials</h2>
+    <p>Select the officials you want to contact. Your letter will auto-generate. Volume matters — 500 constituents writing simultaneously creates real pressure.</p>
+  </div>
+
+  <div class="notice-bar">
+    Fill in your information in the "Build Your Reports" tab first — it carries over here.
+  </div>
+
+  <div class="select-all-row">
+    <button class="btn btn-ghost" onclick="selectAll()">Select All</button>
+    <button class="btn btn-ghost" onclick="selectNone()">Clear</button>
+    <span>Select the officials to contact</span>
+  </div>
+
+  <div class="official-grid" id="official-grid">
+
+    <div class="official-card" data-id="sherrod" onclick="toggleOfficial(this)">
+      <div class="check">&#10003;</div>
+      <div class="official-name">Senate Banking Committee</div>
+      <div class="official-role">Chair — US Senate</div>
+      <div class="official-why">Jurisdiction over crypto regulation</div>
+    </div>
+
+    <div class="official-card" data-id="waters" onclick="toggleOfficial(this)">
+      <div class="check">&#10003;</div>
+      <div class="official-name">House Financial Services Committee</div>
+      <div class="official-role">Ranking — US House</div>
+      <div class="official-why">Crypto oversight, investor protection</div>
+    </div>
+
+    <div class="official-card" data-id="padilla" onclick="toggleOfficial(this)">
+      <div class="check">&#10003;</div>
+      <div class="official-name">Sen. Alex Padilla</div>
+      <div class="official-role">US Senator — California</div>
+      <div class="official-why">CA constituent representation</div>
+    </div>
+
+    <div class="official-card" data-id="schiff" onclick="toggleOfficial(this)">
+      <div class="check">&#10003;</div>
+      <div class="official-name">Sen. Adam Schiff</div>
+      <div class="official-role">US Senator — California</div>
+      <div class="official-why">CA constituent representation</div>
+    </div>
+
+    <div class="official-card" data-id="doj" onclick="toggleOfficial(this)">
+      <div class="check">&#10003;</div>
+      <div class="official-name">DOJ Scam Center Strike Force</div>
+      <div class="official-role">US Dept. of Justice</div>
+      <div class="official-why">Active enforcement unit</div>
+    </div>
+
+    <div class="official-card" data-id="ftc-chair" onclick="toggleOfficial(this)">
+      <div class="check">&#10003;</div>
+      <div class="official-name">FTC Chair</div>
+      <div class="official-role">Federal Trade Commission</div>
+      <div class="official-why">Consumer protection enforcement</div>
+    </div>
+
+    <div class="official-card" data-id="ca-ag" onclick="toggleOfficial(this)">
+      <div class="check">&#10003;</div>
+      <div class="official-name">CA Attorney General</div>
+      <div class="official-role">State of California</div>
+      <div class="official-why">State-level enforcement & prosecution</div>
+    </div>
+
+    <div class="official-card" data-id="cfpb" onclick="toggleOfficial(this)">
+      <div class="check">&#10003;</div>
+      <div class="official-name">CFPB Director</div>
+      <div class="official-role">Consumer Financial Protection Bureau</div>
+      <div class="official-why">Payment fraud consumer protection</div>
+    </div>
+
+  </div>
+
+  <div style="margin: 1.5rem 0;">
+    <div class="letter-header">
+      <span class="letter-agency">Demand Action Letter — Elected Officials & Agencies</span>
+      <span class="letter-url">Personalize and send to each selected recipient</span>
+    </div>
+    <textarea class="letter-body" id="text-congress" style="min-height:460px;"></textarea>
+    <div class="letter-actions" style="margin-top:10px;">
+      <button class="btn btn-teal" onclick="copyLetter('text-congress', this)">Copy Letter</button>
+      <button class="btn btn-ghost" onclick="updateCongress()">Refresh</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <p>This toolkit was created to help victims of cryptocurrency investment fraud take action. It does not constitute legal advice.</p>
+  <p style="margin-top:6px;">Share freely. File early. <a href="https://www.ic3.gov/Home/FileComplaint" target="_blank">IC3.gov</a> &nbsp;|&nbsp; <a href="https://reportfraud.ftc.gov" target="_blank">ReportFraud.FTC.gov</a> &nbsp;|&nbsp; <a href="https://dfpi.ca.gov/file-a-complaint" target="_blank">DFPI.ca.gov</a></p>
+</footer>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  if (id === 'letters') updateLetters();
+  if (id === 'congress') updateCongress();
+}
+
+function switchLetter(id, btn) {
+  document.querySelectorAll('.letter-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.letter-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('letter-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleStep(id) {
+  document.getElementById(id).classList.toggle('done');
+}
+
+function g(id) {
+  return document.getElementById(id).value || '[' + id.replace('f-','').toUpperCase() + ']';
+}
+
+function updateLetters() {
+  const name = g('f-name'), loc = g('f-location'), email = g('f-email'),
+        phone = g('f-phone'), amount = g('f-amount'), platform = g('f-platform'),
+        url = g('f-url'), date = g('f-date'), freeze = g('f-freeze'),
+        wallet = g('f-wallet'), recruit = g('f-recruit'), bank = g('f-bank'),
+        ic3 = g('f-ic3');
+
+  document.getElementById('text-ic3').value =
+`Pig Butchering / Fake Crypto Exchange — ${platform} / ${url}
+
+I am reporting a confirmed cryptocurrency investment fraud ("pig butchering" / sha zhu pan) perpetrated by a platform called ${platform}, operating at ${url}.
+
+I deposited ${amount} in cryptocurrency to the platform after being recruited via ${recruit}. My funds were received by a wallet address controlled by the platform. When I attempted to withdraw, my account was frozen without consent or legal justification.
+
+TECHNICAL EVIDENCE:
+The platform's HTML source code confirms it has no real trading infrastructure. All pages are identical HTML shells. Charts are rendered using ECharts visualization software — not connected to any real market. The Web3 library is loaded as a decorative element only with no blockchain functionality. A Cloudflare analytics token is identical across all pages, confirming copy-paste construction.
+
+FINANCIAL LOSS:
+Amount lost: ${amount}
+Date of deposit: ${date}
+Date withdrawal blocked: ${freeze}
+Destination wallet / TX hash: ${wallet}
+
+CONTACT:
+${name} | ${loc} | ${email} | ${phone}`;
+
+  document.getElementById('text-ftc').value =
+`I lost ${amount} to a fraudulent cryptocurrency trading platform called ${platform} (${url}).
+
+I was recruited via ${recruit} and directed to deposit cryptocurrency. When I attempted to withdraw my funds on ${freeze}, my account was frozen with no explanation.
+
+The platform's source code confirms it has no real trading infrastructure — it uses ECharts charting software to display fabricated price data and has no functional blockchain connectivity. This is a "pig butchering" (sha zhu pan) fraud scheme.
+${ic3 !== '[IC3]' ? '\nIC3 Complaint #: ' + ic3 : ''}
+
+Platform: ${platform} at ${url}
+Amount lost: ${amount} | Date: ${date}
+Payment method: Cryptocurrency | Wallet/TX: ${wallet}
+How recruited: ${recruit}
+
+${name} | ${loc} | ${email} | ${phone}`;
+
+  document.getElementById('text-dfpi').value =
+`COMPLAINT AGAINST UNLICENSED CRYPTOCURRENCY PLATFORM
+${platform} — ${url}
+
+I am a California resident (${loc}) filing a complaint against ${platform}, an unlicensed cryptocurrency trading platform at ${url}.
+
+I was solicited while in California via ${recruit} and deposited ${amount} on ${date}. The platform displayed fabricated trading activity confirmed via source code analysis. On ${freeze}, my withdrawal was blocked without legal basis or disclosure.
+
+${platform} is not registered as a money transmitter, investment adviser, or broker-dealer in California. It has no disclosed ownership, no physical address, no regulatory registration, and no functional withdrawal mechanism — consistent with a pig butchering fraud scheme.
+${ic3 !== '[IC3]' ? '\nFederal IC3 Complaint #: ' + ic3 : ''}
+
+I request DFPI: (1) investigate ${platform}/${url} for unlicensed financial activity under California Financial Code; (2) issue a public consumer alert; (3) coordinate with IC3 and FTC.
+
+${name} | ${loc} | ${email} | ${phone}
+Wallet / TX: ${wallet}`;
+
+  document.getElementById('text-bank').value =
+`To the Fraud Department,
+
+I am writing to dispute a ${bank} transfer made from my account as part of a fraud scheme.
+
+On ${date}, I sent ${amount} via ${bank} as part of what I believed was a legitimate cryptocurrency investment. Those funds were transferred to a fraudulent platform called ${platform} (${url}), which froze my account and blocked all withdrawals on ${freeze}.
+
+This platform has been confirmed as a pig butchering cryptocurrency fraud. I have filed a federal complaint with the FBI Internet Crime Complaint Center${ic3 !== '[IC3]' ? ' (Complaint #' + ic3 + ')' : ''} and the FTC. The platform's own source code confirms it has no real trading infrastructure.
+
+I am requesting:
+1. This transfer be flagged and investigated as fraud-induced payment
+2. Documentation of this as part of the ${platform} scam network
+3. All available recovery options under Regulation E or your fraud policy
+
+Supporting documentation available: IC3 complaint, platform source code evidence, transaction records.
+
+Account holder: ${name} | ${loc}
+Transfer date: ${date} | Amount: ${amount}
+${email} | ${phone}`;
+
+  document.getElementById('text-cashapp').value =
+`To Cash App / Square Fraud Team,
+
+I am reporting a fraudulent transaction from my Cash App account.
+
+On ${date}, I sent ${amount} from Cash App to a wallet address associated with a fraudulent cryptocurrency platform called ${platform} (${url}). The platform froze my account and blocked all withdrawals on ${freeze}.
+
+This is a confirmed pig butchering / sha zhu pan fraud scheme. I have filed with the FBI IC3${ic3 !== '[IC3]' ? ' (Complaint #' + ic3 + ')' : ''} and the FTC. The platform's source code confirms it uses charting software to display fake trading data with no real blockchain connectivity.
+
+Destination wallet address: ${wallet}
+Transaction date: ${date} | Amount: ${amount}
+
+I am requesting: (1) the receiving wallet address be flagged; (2) cooperation with FBI/law enforcement if requested; (3) any available dispute or recovery process.
+
+${name} | ${loc} | ${email} | ${phone}`;
+}
+
+function updateCongress() {
+  const name = g('f-name'), loc = g('f-location'), amount = g('f-amount'),
+        platform = g('f-platform'), url = g('f-url'), ic3 = g('f-ic3');
+
+  document.getElementById('text-congress').value =
+`Dear [Recipient],
+
+I am writing as your constituent and as a victim of a cryptocurrency investment fraud known as "pig butchering" (sha zhu pan) to urge immediate legislative and regulatory action.
+
+I lost ${amount} to ${platform} (${url}), a fraudulent platform with no real trading infrastructure. My account was frozen when I attempted to withdraw. I have filed with the FBI IC3${ic3 !== '[IC3]' ? ' (Complaint #' + ic3 + ')' : ''}, the FTC, and California DFPI. I am one of an estimated 500 known victims of this single operation.
+
+THE SCALE IS STAGGERING:
+The FBI reports $5.8 billion lost by American victims in 2024 alone. Over 200,000 cases were identified. Globally, an estimated $75 billion has been stolen since 2020. These operations are run from forced labor compounds in Southeast Asia where over 200,000 trafficked workers are held captive.
+
+I AM ASKING YOU TO:
+
+1. STRENGTHEN CRIMINAL PENALTIES — Current sentences do not reflect the scale of harm. Operators who steal millions from hundreds of victims face lesser consequences than street-level theft. We need mandatory minimums for large-scale crypto fraud with sentencing enhancements for operations using human trafficking.
+
+2. MANDATE EXCHANGE RESPONSIBILITY — Require cryptocurrency exchanges to implement real-time destination wallet screening, report large transfers to known fraud wallets, and provide victims with direct cooperation mechanisms for law enforcement requests.
+
+3. FUND THE FBI SCAM CENTER STRIKE FORCE — The DOJ's November 2025 Scam Center Strike Force has seized over $400M and made 276 arrests. This unit needs sustained, increased funding.
+
+4. CREATE A VICTIM COMPENSATION FUND — Seized crypto assets from prosecuted pig butchering operations should fund direct victim restitution, not disappear into general treasury.
+
+5. REQUIRE PAYMENT APP FRAUD PROTECTIONS — Zelle, Cash App, and similar platforms are primary vectors. Mandate fraud dispute rights equivalent to credit card protections.
+
+These are not abstract policy questions. I lost ${amount}. My community has been devastated. Without action from Congress, these operations will continue to run with impunity.
+
+Respectfully,
+${name}
+${loc}
+${ic3 !== '[IC3]' ? 'FBI IC3 Complaint #' + ic3 : ''}`;
+}
+
+function copyLetter(id, btn) {
+  navigator.clipboard.writeText(document.getElementById(id).value).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function toggleOfficial(card) {
+  card.classList.toggle('selected');
+  updateCongress();
+}
+
+function selectAll() {
+  document.querySelectorAll('.official-card').forEach(c => c.classList.add('selected'));
+  updateCongress();
+}
+
+function selectNone() {
+  document.querySelectorAll('.official-card').forEach(c => c.classList.remove('selected'));
+  updateCongress();
+}
+
+function openLink(url) {
+  window.open(url, '_blank');
+}
+
+// Initialize letters with placeholders
+updateLetters();
+updateCongress();
+</script>
+</body>
+</html>
