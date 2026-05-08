@@ -234,6 +234,9 @@ body {
 .step-num svg { display: none; }
 .step.done .step-num .num-label { display: none; }
 .step.done .step-num svg { display: block; }
+.step-body a { color: var(--teal); pointer-events: auto; position: relative; z-index: 10; }
+.step-body a:hover { text-decoration: underline; }
+.step-body button { pointer-events: auto; position: relative; z-index: 10; }
 .step-body p { font-size: 14px; color: var(--text-muted); margin-bottom: 0.5rem; }
 .step-body ul { font-size: 14px; color: var(--text-muted); padding-left: 1.2rem; margin-top: 0.4rem; }
 .step-body ul li { margin-bottom: 0.25rem; }
@@ -988,12 +991,12 @@ body {
       If anyone asks you to pay to use this resource — that is a scam.
     </p>
     <div class="hero-home-cards">
-      <div class="hero-home-card hero-card-quiz" onclick="switchTab('quiz', document.querySelectorAll('.nav-tabs button')[7])">
+      <div class="hero-home-card hero-card-quiz" onclick="goToQuiz()">
         <div class="hero-card-icon">&#10067;</div>
         <div class="hero-card-label">Not sure if you were scammed?</div>
         <div class="hero-card-action">Take the 2-minute quiz &rarr;</div>
       </div>
-      <div class="hero-home-card hero-card-protocol" onclick="switchTab('protocol', document.querySelectorAll('.nav-tabs button')[0])">
+      <div class="hero-home-card hero-card-protocol" onclick="goToProtocol()">
         <div class="hero-card-icon">&#9654;</div>
         <div class="hero-card-label">I know it was a scam.</div>
         <div class="hero-card-action">Start the recovery protocol &rarr;</div>
@@ -1020,6 +1023,10 @@ body {
     </div>
   </div>
 
+  <div class="notice-bar" style="margin-bottom:1.25rem;">
+    This is not legal advice. Consult an attorney for your specific situation. Filing reports costs nothing and creates the legal paper trail that makes recovery possible. &nbsp;|&nbsp; <strong>This toolkit is 100% free.</strong> No fees are collected or associated with this site. If anyone charges you to access or use it, that is a scam.
+  </div>
+
   <div style="display:flex; gap:8px; margin-bottom:1rem; flex-wrap:wrap; align-items:center;">
     <span style="font-size:12px; color:var(--text-muted);">Show:</span>
     <button class="filter-btn active" onclick="filterSteps('all', this)" id="filter-all">All Steps</button>
@@ -1028,14 +1035,11 @@ body {
     <button class="filter-btn" onclick="filterSteps('ongoing', this)" id="filter-ongoing">Ongoing</button>
   </div>
 
-  <div class="notice-bar">
-    This is not legal advice. Consult an attorney for your specific situation. Filing reports costs nothing and creates the legal paper trail that makes recovery possible. &nbsp;|&nbsp; <strong>This toolkit is 100% free.</strong> No fees are collected or associated with this site. If anyone charges you to access or use it, that is a scam.
-  </div>
 
   <div class="steps">
 
     <div class="step" id="s1">
-      <div class="step-header" onclick="toggleStepAccordion('s1')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s1', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s1')">
           <span class="num-label">1</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1052,7 +1056,7 @@ body {
     </div>
 
     <div class="step" id="s2">
-      <div class="step-header" onclick="toggleStepAccordion('s2')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s2', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s2')">
           <span class="num-label">2</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1097,7 +1101,7 @@ body {
     </div>
 
     <div class="step" id="s3">
-      <div class="step-header" onclick="toggleStepAccordion('s3')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s3', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s3')">
           <span class="num-label">3</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1114,7 +1118,7 @@ body {
     </div>
 
     <div class="step" id="s4">
-      <div class="step-header" onclick="toggleStepAccordion('s4')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s4', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s4')">
           <span class="num-label">4</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1131,7 +1135,7 @@ body {
     </div>
 
     <div class="step" id="s5">
-      <div class="step-header" onclick="toggleStepAccordion('s5')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s5', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s5')">
           <span class="num-label">5</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1149,7 +1153,7 @@ body {
 
 
     <div class="step" id="s6">
-      <div class="step-header" onclick="toggleStepAccordion('s6')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s6', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s6')">
           <span class="num-label">6</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1171,7 +1175,7 @@ body {
     </div>
 
     <div class="step" id="s7">
-      <div class="step-header" onclick="toggleStepAccordion('s7')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s7', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s7')">
           <span class="num-label">7</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1192,7 +1196,7 @@ body {
     </div>
 
     <div class="step" id="s8">
-      <div class="step-header" onclick="toggleStepAccordion('s8')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s8', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s8')">
           <span class="num-label">8</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1216,7 +1220,7 @@ body {
     </div>
 
     <div class="step" id="s9">
-      <div class="step-header" onclick="toggleStepAccordion('s9')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s9', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s9')">
           <span class="num-label">9</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1233,7 +1237,7 @@ body {
     </div>
 
     <div class="step" id="s10">
-      <div class="step-header" onclick="toggleStepAccordion('s10')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s10', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s10')">
           <span class="num-label">10</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1250,7 +1254,7 @@ body {
     </div>
 
     <div class="step" id="s11">
-      <div class="step-header" onclick="toggleStepAccordion('s11')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s11', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s11')">
           <span class="num-label">11</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1267,7 +1271,7 @@ body {
     </div>
 
     <div class="step" id="s12">
-      <div class="step-header" onclick="toggleStepAccordion('s12')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s12', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s12')">
           <span class="num-label">12</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1284,7 +1288,7 @@ body {
     </div>
 
     <div class="step" id="s13">
-      <div class="step-header" onclick="toggleStepAccordion('s13')">
+      <div class="step-header" onclick=\"toggleStepAccordion('s13', event)\">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s13')">
           <span class="num-label">13</span>
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -2043,10 +2047,10 @@ body {
   <div style="background:var(--bg2); border:1px solid var(--border); border-radius:12px; overflow:hidden;">
     <div style="padding:1rem 1.5rem; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
       <span style="font-family:'Oswald',sans-serif; font-size:1rem; font-weight:500; color:var(--text); letter-spacing:0.04em;">Toolkit Feedback Form</span>
-      <a href="GOOGLE_FORM_DIRECT_LINK" target="_blank" style="font-size:12px; color:var(--teal); text-decoration:none;">Open in new tab</a>
+      <a href="https://forms.gle/SgTEZ7T8s1AAPoST6" target="_blank" style="font-size:12px; color:var(--teal); text-decoration:none;">Open in new tab</a>
     </div>
     <iframe
-      src="GOOGLE_FORM_EMBED_URL"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSc-IoYDRxDMAc_IplI_L9pP8scssSbJNIihx4Yy-DOmQGib5Q/viewform?embedded=true"
       width="100%"
       height="900"
       frameborder="0"
@@ -2897,13 +2901,52 @@ const agencyURLs = {
 
 // ===== DOMContentLoaded INIT =====
 
+
+// ===== HOME CARD NAVIGATION =====
+function goToProtocol() {
+  // Switch to protocol tab
+  const protocolBtn = document.querySelector('.nav-tabs button');
+  switchTab('protocol', protocolBtn);
+  // Scroll so the main content top (below sticky header) is in view
+  setTimeout(function() {
+    const main = document.querySelector('.main');
+    if (main) {
+      const headerH = document.querySelector('.site-header').offsetHeight;
+      const y = main.getBoundingClientRect().top + window.scrollY - headerH - 8;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, 60);
+}
+
+function goToQuiz() {
+  // Find the quiz button — it's the second-to-last nav button
+  const btns = document.querySelectorAll('.nav-tabs button');
+  const quizBtn = btns[btns.length - 1];
+  switchTab('quiz', quizBtn);
+  setTimeout(function() {
+    const main = document.querySelector('.main');
+    if (main) {
+      const headerH = document.querySelector('.site-header').offsetHeight;
+      const y = main.getBoundingClientRect().top + window.scrollY - headerH - 8;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, 60);
+}
+
 // ===== STEP ACCORDION =====
-function toggleStepAccordion(id) {
+function toggleStepAccordion(id, event) {
+  // Don't intercept clicks on links, buttons, inputs, or code inside the body
+  if (event && event.target) {
+    const t = event.target;
+    if (t.tagName === 'A' || t.tagName === 'BUTTON' || t.tagName === 'INPUT' ||
+        t.tagName === 'TEXTAREA' || t.tagName === 'CODE' || t.tagName === 'LABEL' ||
+        t.closest('a') || t.closest('button') || t.closest('.step-body')) {
+      return;
+    }
+  }
   const step = document.getElementById(id);
   const isOpen = step.classList.contains('open');
-  // Close all steps
   document.querySelectorAll('.step').forEach(s => s.classList.remove('open'));
-  // Open this one if it was closed
   if (!isOpen) {
     step.classList.add('open');
     step.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
