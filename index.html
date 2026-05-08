@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crypto Fraud Recovery Toolkit — Pig Butchering Scam Action Guide</title>
+<title>Crypto &amp; Investment Fraud Recovery Toolkit — Scam Victim Action Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -66,7 +66,10 @@ body {
   gap: 0;
   list-style: none;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.nav-tabs::-webkit-scrollbar { display: none; }
 .nav-tabs li { flex-shrink: 0; }
 .nav-tabs button {
   background: none;
@@ -75,7 +78,7 @@ body {
   font-family: 'Oswald', sans-serif;
   font-size: 13px;
   letter-spacing: 0.08em;
-  padding: 0 18px;
+  padding: 0 16px;
   height: 64px;
   cursor: pointer;
   border-bottom: 2px solid transparent;
@@ -85,6 +88,12 @@ body {
 }
 .nav-tabs button:hover { color: var(--text); }
 .nav-tabs button.active { color: var(--teal); border-bottom-color: var(--teal); }
+@media (max-width: 640px) {
+  .nav-tabs button { font-size: 11px; padding: 0 10px; height: 52px; letter-spacing: 0.04em; }
+  .site-header { padding: 0 1rem; }
+  .header-inner { height: auto; flex-direction: column; align-items: flex-start; padding: 10px 0; gap: 0; }
+  .site-title { padding: 8px 0 4px; font-size: 18px; }
+}
 
 /* HERO BANNER */
 .hero {
@@ -193,12 +202,8 @@ body {
 .card-blue { border-left: 3px solid var(--blue); }
 
 /* PROTOCOL STEPS */
-.steps { display: flex; flex-direction: column; gap: 1rem; }
+.steps { display: flex; flex-direction: column; gap: 0.75rem; }
 .step {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 1.25rem;
-  align-items: start;
   background: var(--bg2);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -206,10 +211,12 @@ body {
   transition: border-color 0.2s;
 }
 .step.done { border-color: var(--teal-dim); opacity: 0.7; }
+.step.open { border-color: var(--teal); }
 .step-num {
   width: 40px; height: 40px;
   border-radius: 50%;
   background: var(--bg3);
+  cursor: pointer;
   border: 1.5px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Oswald', sans-serif;
@@ -227,17 +234,10 @@ body {
 .step-num svg { display: none; }
 .step.done .step-num .num-label { display: none; }
 .step.done .step-num svg { display: block; }
-.step-content h3 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--text);
-  letter-spacing: 0.03em;
-  margin-bottom: 0.35rem;
-}
-.step-content p { font-size: 14px; color: var(--text-muted); }
-.step-content ul { font-size: 14px; color: var(--text-muted); padding-left: 1.2rem; margin-top: 0.4rem; }
-.step-content ul li { margin-bottom: 0.25rem; }
+.step-body p { font-size: 14px; color: var(--text-muted); margin-bottom: 0.5rem; }
+.step-body ul { font-size: 14px; color: var(--text-muted); padding-left: 1.2rem; margin-top: 0.4rem; }
+.step-body ul li { margin-bottom: 0.25rem; }
+.step-body a { color: var(--teal); }
 .priority-badge {
   display: inline-block;
   font-size: 10px;
@@ -464,6 +464,216 @@ body {
 .select-all-row { display: flex; gap: 8px; margin-bottom: 1rem; align-items: center; }
 .select-all-row span { font-size: 12px; color: var(--text-muted); }
 
+/* SHARE */
+.share-msg-btn {
+  padding: 7px 16px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.share-msg-btn:hover { border-color: var(--teal-dim); color: var(--text); }
+.share-msg-btn.active { background: rgba(0,201,167,0.1); border-color: var(--teal); color: var(--teal); }
+
+.share-platform-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.share-platform-btn:hover { border-color: var(--teal); background: rgba(0,201,167,0.05); }
+.share-icon {
+  font-size: 1.4rem;
+  color: var(--teal);
+  font-weight: 700;
+  line-height: 1;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.share-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.reddit-link {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+  transition: all 0.2s;
+}
+.reddit-link span { font-size: 11px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+.reddit-link:hover { border-color: var(--teal); }
+.hashtag-tag {
+  padding: 6px 14px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+.hashtag-tag:hover { border-color: var(--teal-dim); color: var(--teal); }
+.hashtag-tag.copied { background: rgba(0,201,167,0.1); border-color: var(--teal); color: var(--teal); }
+
+/* QUIZ */
+.quiz-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+.quiz-question {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.quiz-subtext {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.quiz-options { display: flex; flex-direction: column; gap: 10px; }
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: all 0.2s;
+  text-align: left;
+}
+.quiz-option:hover { border-color: var(--teal-dim); color: var(--text); background: rgba(0,201,167,0.04); }
+.quiz-option.selected-yes { border-color: var(--coral); background: rgba(255,92,92,0.06); color: var(--text); }
+.quiz-option.selected-no { border-color: var(--teal); background: rgba(0,201,167,0.06); color: var(--text); }
+.quiz-option.selected-unsure { border-color: var(--amber); background: rgba(245,158,11,0.06); color: var(--text); }
+.quiz-option-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.quiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+.quiz-flag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+.quiz-flag-red { background: rgba(255,92,92,0.15); color: var(--coral); border: 1px solid rgba(255,92,92,0.3); }
+.quiz-flag-amber { background: rgba(245,158,11,0.15); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+
+/* VERDICT */
+.verdict-result {
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.verdict-confirmed {
+  background: rgba(255,92,92,0.07);
+  border: 2px solid rgba(255,92,92,0.4);
+}
+.verdict-likely {
+  background: rgba(245,158,11,0.07);
+  border: 2px solid rgba(245,158,11,0.4);
+}
+.verdict-possible {
+  background: rgba(74,158,255,0.07);
+  border: 2px solid rgba(74,158,255,0.3);
+}
+.verdict-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+.verdict-subtitle {
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+.verdict-score {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+.verdict-flags {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.verdict-flags h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--coral);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.verdict-flag-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.verdict-flag-item::before {
+  content: '⚑';
+  color: var(--coral);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.verdict-cta {
+  background: var(--bg2);
+  border: 1px solid var(--border-teal);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
 /* CHECKLIST */
 .cl-item {
   display: flex;
@@ -507,15 +717,252 @@ body {
   color: #c89040;
   margin-bottom: 1.5rem;
 }
+
+@media print {
+  body { background: #fff !important; color: #111 !important; font-size: 12pt; }
+  .site-header, .hero, .site-footer, .nav-tabs, .btn, .letter-tabs,
+  .share-platform-btn, .filter-btn, .select-all-row, .notice-bar,
+  #quiz-container, .quiz-nav, .quiz-restart-wrap,
+  .share-msg-btn, .reddit-link, .hashtag-tag,
+  #tab-share, #tab-quiz, #tab-congress, #tab-community, #tab-feedback { display: none !important; }
+  .tab-panel { display: block !important; }
+  .card, .step, .evidence-card, .cl-item, .post-card, .info-panel,
+  .community-form, .verdict-result, .verdict-flags {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    color: #111 !important;
+    break-inside: avoid;
+  }
+  .step-content h3, .section-header h2, .evidence-card h4 { color: #111 !important; }
+  .step-content p, .step-content ul, .evidence-card p { color: #333 !important; }
+  .teal, .amber, .coral, .blue { color: #111 !important; }
+  .letter-body { border: 1px solid #ccc !important; color: #111 !important; background: #fff !important; }
+  a { color: #111 !important; text-decoration: underline; }
+  .cl-item { color: #111 !important; border: 1px solid #ccc !important; }
+  .field-input { border: 1px solid #ccc !important; color: #111 !important; background: #fff !important; }
+}
+
+/* SCAM TYPES */
+.scam-type-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.2s;
+}
+.scam-type-card:hover { border-color: var(--border-teal); }
+.scam-type-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.scam-type-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.scam-type-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.03em;
+  margin-bottom: 3px;
+}
+.scam-type-aka {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.scam-type-body { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+.scam-warning-signs {
+  margin-top: 1rem;
+  padding: 12px 14px;
+  background: var(--bg3);
+  border-radius: 8px;
+  border-left: 3px solid var(--coral);
+}
+.scam-warning-signs h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--coral);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.scam-warning-signs ul {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding-left: 1.2rem;
+}
+.scam-warning-signs ul li { margin-bottom: 3px; }
+.scam-type-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.tag-crypto { background: rgba(0,201,167,0.12); color: var(--teal); border: 1px solid var(--border-teal); }
+.tag-romance { background: rgba(255,92,92,0.12); color: var(--coral); border: 1px solid rgba(255,92,92,0.3); }
+.tag-investment { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+.tag-employment { background: rgba(74,158,255,0.12); color: var(--blue); border: 1px solid rgba(74,158,255,0.3); }
+
+/* HOME SCREEN */
+.hero-home {
+  background: linear-gradient(160deg, #080d16 0%, #0d1a2e 60%, #091020 100%);
+  border-bottom: 1px solid var(--border-teal);
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+.hero-home-inner {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+.hero-home-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+.hero-home-title em { color: var(--teal); font-style: normal; }
+.hero-home-free {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  padding: 12px 20px;
+  background: rgba(0,201,167,0.05);
+  border: 1px solid var(--border-teal);
+  border-radius: 8px;
+  display: inline-block;
+}
+.hero-home-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+@media (max-width: 560px) {
+  .hero-home-cards { grid-template-columns: 1fr; }
+  .hero-home { min-height: auto; padding: 2.5rem 1.25rem; }
+}
+.hero-home-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-align: center;
+}
+.hero-home-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+}
+.hero-card-quiz { border-color: rgba(255,92,92,0.25); }
+.hero-card-quiz:hover { border-color: var(--coral); background: rgba(255,92,92,0.05); }
+.hero-card-protocol { border-color: var(--border-teal); }
+.hero-card-protocol:hover { border-color: var(--teal); background: rgba(0,201,167,0.05); }
+.hero-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+.hero-card-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+.hero-card-action {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.hero-card-quiz .hero-card-action { color: var(--coral); }
+.hero-card-protocol .hero-card-action { color: var(--teal); }
+
+/* STEP ACCORDION */
+.step {
+  cursor: default;
+}
+.step-header {
+  display: grid;
+  grid-template-columns: 48px 1fr 24px;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+}
+.step-header:hover .step-title { color: var(--teal); }
+.step-chevron {
+  color: var(--text-muted);
+  font-size: 12px;
+  transition: transform 0.2s;
+  justify-self: end;
+}
+.step.open .step-chevron { transform: rotate(180deg); }
+.step-body {
+  display: none;
+  padding-top: 1rem;
+  padding-left: calc(48px + 1rem);
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+.step.open .step-body { display: block; }
+.step-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.step-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
 </style>
 </head>
 <body>
+
+<div id="welcome-banner" style="background:rgba(0,201,167,0.08); border-bottom:1px solid var(--border-teal); padding:12px 2rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; position:sticky; top:0; z-index:99;">
+  <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span style="font-size:18px;">&#9888;</span>
+    <span style="font-size:13px; color:var(--text);">
+      <strong style="color:var(--teal);">New here?</strong> Not sure if you were scammed? 
+      <button onclick="switchTab('quiz', document.querySelector('.nav-tabs button:nth-last-child(2)')); dismissBanner()" style="background:none; border:none; color:var(--coral); font-weight:600; font-size:13px; cursor:pointer; text-decoration:underline; padding:0;">Take the 2-minute quiz first.</button>
+      Already know? 
+      <button onclick="switchTab('protocol', document.querySelector('.nav-tabs button')); dismissBanner()" style="background:none; border:none; color:var(--teal); font-weight:600; font-size:13px; cursor:pointer; text-decoration:underline; padding:0;">Go to Step 1.</button>
+    </span>
+  </div>
+  <button onclick="dismissBanner()" style="background:none; border:none; color:var(--text-muted); font-size:18px; cursor:pointer; line-height:1; flex-shrink:0;">&times;</button>
+</div>
 
 <header class="site-header">
   <div class="header-inner">
     <div class="site-title">
       CRYPTO FRAUD RECOVERY
-      <span>Pig Butchering Scam Action Toolkit</span>
+      <span>Scam Victim Recovery &amp; Action Toolkit</span>
     </div>
     <nav>
       <ul class="nav-tabs">
@@ -524,33 +971,32 @@ body {
         <li><button onclick="switchTab('evidence', this)">Evidence</button></li>
         <li><button onclick="switchTab('congress', this)">Demand Action</button></li>
         <li><button onclick="switchTab('checklist', this)">Checklist</button></li>
+        <li><button onclick="switchTab('scamtypes', this)">Scam Types</button></li>
         <li><button onclick="switchTab('feedback', this)">Feedback</button></li>
+        <li><button onclick="switchTab('share', this)">Share</button></li>
+        <li><button onclick="switchTab('quiz', this)">Was It a Scam?</button></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Confirmed Fraud Operation</div>
-    <h1>You Were <em>Targeted.</em><br>Here Is What To Do.</h1>
-    <p>This toolkit gives victims of pig butchering crypto scams a step-by-step recovery protocol, pre-written government reports, technical evidence, and letters to elected officials — all in one place.</p>
-    <div class="stat-row">
-      <div class="stat">
-        <span class="stat-num">$5.8B</span>
-        <span class="stat-label">US losses in 2024</span>
+<div class="hero-home">
+  <div class="hero-home-inner">
+    <h1 class="hero-home-title">You Were <em>Targeted.</em><br>Here Is What To Do.</h1>
+    <p class="hero-home-free">
+      This toolkit is completely free. No fees. No charges. No collections. Ever.<br>
+      If anyone asks you to pay to use this resource — that is a scam.
+    </p>
+    <div class="hero-home-cards">
+      <div class="hero-home-card hero-card-quiz" onclick="switchTab('quiz', document.querySelectorAll('.nav-tabs button')[7])">
+        <div class="hero-card-icon">&#10067;</div>
+        <div class="hero-card-label">Not sure if you were scammed?</div>
+        <div class="hero-card-action">Take the 2-minute quiz &rarr;</div>
       </div>
-      <div class="stat">
-        <span class="stat-num">200K+</span>
-        <span class="stat-label">Identified cases</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">276</span>
-        <span class="stat-label">Arrests Apr 2026</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">$562M</span>
-        <span class="stat-label">FBI saved victims</span>
+      <div class="hero-home-card hero-card-protocol" onclick="switchTab('protocol', document.querySelectorAll('.nav-tabs button')[0])">
+        <div class="hero-card-icon">&#9654;</div>
+        <div class="hero-card-label">I know it was a scam.</div>
+        <div class="hero-card-action">Start the recovery protocol &rarr;</div>
       </div>
     </div>
   </div>
@@ -560,37 +1006,64 @@ body {
 
 <!-- ============ TAB 1: PROTOCOL ============ -->
 <div id="tab-protocol" class="tab-panel active">
-  <div class="section-header">
-    <h2>Recovery Protocol</h2>
-    <p>Click a step number to mark it complete. Work through these in order — sequence matters.</p>
+  <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
+    <div>
+      <h2>Recovery Protocol</h2>
+      <p>Click a step number to mark it complete. Work through these in order — sequence matters.</p>
+    </div>
+    <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:12px 20px; text-align:center; flex-shrink:0;">
+      <div id="steps-completed" style="font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--teal); line-height:1;">0 <span style="font-size:1rem; color:var(--text-muted);">of 13</span></div>
+      <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:2px;">Steps Completed</div>
+      <div style="margin-top:8px; height:4px; background:var(--bg); border-radius:4px; overflow:hidden;">
+        <div id="steps-progress" style="height:4px; background:var(--teal); width:0%; transition:width 0.4s ease; border-radius:4px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:8px; margin-bottom:1rem; flex-wrap:wrap; align-items:center;">
+    <span style="font-size:12px; color:var(--text-muted);">Show:</span>
+    <button class="filter-btn active" onclick="filterSteps('all', this)" id="filter-all">All Steps</button>
+    <button class="filter-btn" onclick="filterSteps('now', this)" id="filter-now">Do This Today</button>
+    <button class="filter-btn" onclick="filterSteps('week', this)" id="filter-week">Within 48–72 Hours</button>
+    <button class="filter-btn" onclick="filterSteps('ongoing', this)" id="filter-ongoing">Ongoing</button>
   </div>
 
   <div class="notice-bar">
-    This is not legal advice. Consult an attorney for your specific situation. Filing reports costs nothing and creates the legal paper trail that makes recovery possible.
+    This is not legal advice. Consult an attorney for your specific situation. Filing reports costs nothing and creates the legal paper trail that makes recovery possible. &nbsp;|&nbsp; <strong>This toolkit is 100% free.</strong> No fees are collected or associated with this site. If anyone charges you to access or use it, that is a scam.
   </div>
 
   <div class="steps">
 
     <div class="step" id="s1">
-      <div class="step-num" onclick="toggleStep('s1')">
-        <span class="num-label">1</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s1')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s1')">
+          <span class="num-label">1</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-now">Do This Today</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~2 min</span></div>
+          <div class="step-title">Stop All Deposits Immediately</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-now">Do This Today</span>
-        <h3>Stop All Deposits Immediately</h3>
+      <div class="step-body">
         <p>Do not send any more money to the platform under any circumstances. Scammers will attempt to collect more by telling you that you need to pay "taxes," "verification fees," or "insurance" to unlock your frozen funds. <strong style="color:var(--coral)">These are additional theft mechanisms.</strong> There is no fee that will unlock your funds.</p>
       </div>
     </div>
 
     <div class="step" id="s2">
-      <div class="step-num" onclick="toggleStep('s2')">
-        <span class="num-label">2</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s2')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s2')">
+          <span class="num-label">2</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-now">Do This Today</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~30–60 min</span></div>
+          <div class="step-title">Preserve All Evidence — Screenshot Everything</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-now">Do This Today</span>
-        <h3>Preserve All Evidence — Screenshot Everything</h3>
+      <div class="step-body">
         <p>Do this before the site disappears. Screenshot and save with timestamps visible:</p>
         <ul>
           <li><strong style="color:var(--text)">Account balance screens</strong> — before and after any withdrawal attempt</li>
@@ -619,55 +1092,75 @@ body {
             <li><strong style="color:var(--text)">Paste the code into Claude.ai for analysis</strong> — Claude can identify fake trading infrastructure, missing withdrawal functions, and other technical evidence of fraud directly in the code</li>
           </ol>
           <p style="font-size:12px; color:var(--text-muted); margin-top:8px;">Do this for every page — deposit page, trading page, wallet page. Identical page structures across multiple pages is itself evidence of fraud.</p>
-        </div>
       </div>
+    </div>
     </div>
 
     <div class="step" id="s3">
-      <div class="step-num" onclick="toggleStep('s3')">
-        <span class="num-label">3</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s3')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s3')">
+          <span class="num-label">3</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-now">File First</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~20 min</span></div>
+          <div class="step-title">File with the FBI — IC3.gov</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-now">File First</span>
-        <h3>File with the FBI — IC3.gov</h3>
+      <div class="step-body">
         <p>Go to <a href="https://ic3.gov" target="_blank" style="color:var(--teal)">ic3.gov</a> and file your complaint. This takes 15–20 minutes. Save your IC3 complaint number — you will use it in every other filing. For losses over $100,000, the IC3 Recovery Asset Team can initiate emergency freeze procedures.</p>
       </div>
     </div>
 
     <div class="step" id="s4">
-      <div class="step-num" onclick="toggleStep('s4')">
-        <span class="num-label">4</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s4')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s4')">
+          <span class="num-label">4</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~10 min</span></div>
+          <div class="step-title">File with the FTC</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-week">Within 48 Hours</span>
-        <h3>File with the FTC</h3>
+      <div class="step-body">
         <p>Go to <strong style="color:var(--teal)">reportfraud.ftc.gov</strong> — select Investment Scam → Cryptocurrency. Reference your IC3 number. The FTC aggregates reports to identify patterns and can issue consumer alerts.</p>
       </div>
     </div>
 
     <div class="step" id="s5">
-      <div class="step-num" onclick="toggleStep('s5')">
-        <span class="num-label">5</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s5')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s5')">
+          <span class="num-label">5</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~15 min</span></div>
+          <div class="step-title">File with Your State Regulator</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-week">Within 48 Hours</span>
-        <h3>File with Your State Regulator</h3>
+      <div class="step-body">
         <p>California residents: file at <a href="https://dfpi.ca.gov/submit-a-complaint/" target="_blank" style="color:var(--teal)">dfpi.ca.gov/submit-a-complaint</a> (DFPI) and <a href="https://oag.ca.gov" target="_blank" style="color:var(--teal)">oag.ca.gov</a> (Attorney General). Other states: search "[your state] financial consumer complaint" to find the right agency. Include your IC3 number in all filings.</p>
       </div>
     </div>
 
 
     <div class="step" id="s6">
-      <div class="step-num" onclick="toggleStep('s6')">
-        <span class="num-label">6</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s6')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s6')">
+          <span class="num-label">6</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~30 min</span></div>
+          <div class="step-title">File with the CFTC — Binary Options & Crypto Fraud</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-week">Within 48 Hours</span>
-        <h3>File with the CFTC — Binary Options & Crypto Fraud</h3>
+      <div class="step-body">
         <p>The Commodity Futures Trading Commission has direct jurisdiction over unregistered binary options platforms and crypto commodity fraud. File two separate complaints:</p>
         <ul>
           <li><strong style="color:var(--text)">CFTC Whistleblower:</strong> <a href="https://www.cftc.gov/ConsumerProtection/FileaTip/index.htm" target="_blank" style="color:var(--teal)">cftc.gov/ConsumerProtection/FileaTip</a> — complete this first as a prerequisite</li>
@@ -678,13 +1171,18 @@ body {
     </div>
 
     <div class="step" id="s7">
-      <div class="step-num" onclick="toggleStep('s7')">
-        <span class="num-label">7</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s7')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s7')">
+          <span class="num-label">7</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~10 min</span></div>
+          <div class="step-title">File with the SEC — Securities Fraud</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-week">Within 48 Hours</span>
-        <h3>File with the SEC — Securities Fraud</h3>
+      <div class="step-body">
         <p>If the platform represented itself as an investment opportunity with promised returns, that may constitute an unregistered securities offering. File at:</p>
         <ul>
           <li><a href="https://www.sec.gov/submit-tip-or-complaint/tips-complaints-resources/report-suspected-securities-fraud-or-wrongdoing" target="_blank" style="color:var(--teal)">SEC Tips, Complaints & Referrals</a></li>
@@ -694,13 +1192,18 @@ body {
     </div>
 
     <div class="step" id="s8">
-      <div class="step-num" onclick="toggleStep('s8')">
-        <span class="num-label">8</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s8')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s8')">
+          <span class="num-label">8</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-week">This Week</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~15 min</span></div>
+          <div class="step-title">Report All Wallet Addresses to Chainabuse.com</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-week">This Week</span>
-        <h3>Report All Wallet Addresses to Chainabuse.com</h3>
+      <div class="step-body">
         <p>Go to <a href="https://www.chainabuse.com/report" target="_blank" style="color:var(--teal)">chainabuse.com/report</a> and submit every crypto wallet address associated with the fraud. Submit each address separately.</p>
         <ul>
           <li>Select category: <strong style="color:var(--text)">Pig Butchering Scam</strong></li>
@@ -713,61 +1216,86 @@ body {
     </div>
 
     <div class="step" id="s9">
-      <div class="step-num" onclick="toggleStep('s9')">
-        <span class="num-label">9</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s9')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s9')">
+          <span class="num-label">9</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~20 min</span></div>
+          <div class="step-title">Contact Your Bank or Payment App</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-week">Within 48 Hours</span>
-        <h3>Contact Your Bank or Payment App</h3>
+      <div class="step-body">
         <p>If you sent funds via Zelle, wire transfer, or bank ACH: call your bank's fraud line immediately and request a fraud dispute. If you used Cash App, Venmo, or PayPal: use their in-app fraud reporting. Provide your IC3 complaint number. Banks are more responsive when a federal complaint exists. Use the pre-written letter in the "Build Your Reports" tab.</p>
       </div>
     </div>
 
     <div class="step" id="s10">
-      <div class="step-num" onclick="toggleStep('s10')">
-        <span class="num-label">10</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s10')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s10')">
+          <span class="num-label">10</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-week">Within 72 Hours</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~15 min</span></div>
+          <div class="step-title">Contact Your Crypto Exchange</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-week">Within 72 Hours</span>
-        <h3>Contact Your Crypto Exchange</h3>
+      <div class="step-body">
         <p>If you used Coinbase, Kraken, Binance.US, or another licensed exchange to send funds: contact their fraud/compliance team with the destination wallet address and your TX hash. Exchanges have blockchain tracing tools and may be able to flag the receiving wallet or cooperate with law enforcement.</p>
       </div>
     </div>
 
     <div class="step" id="s11">
-      <div class="step-num" onclick="toggleStep('s11')">
-        <span class="num-label">11</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s11')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s11')">
+          <span class="num-label">11</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-week">This Week</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~varies</span></div>
+          <div class="step-title">Consider a Crypto Fraud Attorney</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-week">This Week</span>
-        <h3>Consider a Crypto Fraud Attorney</h3>
+      <div class="step-body">
         <p>For losses above $5,000, consult a crypto fraud or asset recovery attorney. Many work on contingency (no fee unless they recover funds). Civil litigation, DOJ forfeiture proceedings, and OFAC-related claims are all viable paths. The DOJ's November 2025 Scam Center Strike Force has seized over $400M — victims can file claims against seized assets.</p>
       </div>
     </div>
 
     <div class="step" id="s12">
-      <div class="step-num" onclick="toggleStep('s12')">
-        <span class="num-label">12</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s12')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s12')">
+          <span class="num-label">12</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-ongoing">Ongoing</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~10 min</span></div>
+          <div class="step-title">Write to Your Elected Officials</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-ongoing">Ongoing</span>
-        <h3>Write to Your Elected Officials</h3>
+      <div class="step-body">
         <p>Congressional pressure has driven every major enforcement action against these operations. Use the "Demand Action" tab to generate personalized letters to the Senate Banking Committee, House Financial Services Committee, and your state's federal senators. Volume matters — 500 constituent letters create urgency that individual complaints do not.</p>
       </div>
     </div>
 
     <div class="step" id="s13">
-      <div class="step-num" onclick="toggleStep('s13')">
-        <span class="num-label">13</span>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="step-header" onclick="toggleStepAccordion('s13')">
+        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s13')">
+          <span class="num-label">13</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="step-meta"><span class="priority-badge priority-ongoing">Warn Others</span><span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0.06em; background:var(--bg3); padding:2px 8px; border-radius:10px; margin-right:8px; vertical-align:middle;">~10 min</span></div>
+          <div class="step-title">Report the Platform Publicly</div>
+        </div>
+        <span class="step-chevron">&#9660;</span>
       </div>
-      <div class="step-content">
-        <span class="priority-badge priority-ongoing">Warn Others</span>
-        <h3>Report the Platform Publicly</h3>
+      <div class="step-body">
         <p>Submit the scam website to these resources to protect others:</p>
         <ul>
           <li><strong style="color:var(--text)">Google Safe Browsing:</strong> safebrowsing.google.com/safebrowsing/report_phish</li>
@@ -793,55 +1321,55 @@ body {
       <h3>Your Information</h3>
       <div class="field-group">
         <label class="field-label">Full Name</label>
-        <input class="field-input" id="f-name" placeholder="Your full name" oninput="updateLetters()">
+        <input class="field-input" id="f-name" placeholder="Your full name" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">City, State</label>
-        <input class="field-input" id="f-location" placeholder="Oakland, CA" oninput="updateLetters()">
+        <input class="field-input" id="f-location" placeholder="Oakland, CA" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Email</label>
-        <input class="field-input" id="f-email" placeholder="your@email.com" oninput="updateLetters()">
+        <input class="field-input" id="f-email" placeholder="your@email.com" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Phone</label>
-        <input class="field-input" id="f-phone" placeholder="(555) 000-0000" oninput="updateLetters()">
+        <input class="field-input" id="f-phone" placeholder="(555) 000-0000" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Amount Lost (USD)</label>
-        <input class="field-input" id="f-amount" placeholder="e.g. $1,400" oninput="updateLetters()">
+        <input class="field-input" id="f-amount" placeholder="e.g. $1,400" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Platform Name</label>
-        <input class="field-input" id="f-platform" placeholder="DSJ Exchange / DSJEX" oninput="updateLetters()">
+        <input class="field-input" id="f-platform" placeholder="DSJ Exchange / DSJEX" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Platform URL</label>
-        <input class="field-input" id="f-url" placeholder="tra818.tw" oninput="updateLetters()">
+        <input class="field-input" id="f-url" placeholder="tra818.tw" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Date of Deposit</label>
-        <input class="field-input" id="f-date" placeholder="e.g. March 12, 2025" oninput="updateLetters()">
+        <input class="field-input" id="f-date" placeholder="e.g. March 12, 2025" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Date Withdrawal Blocked</label>
-        <input class="field-input" id="f-freeze" placeholder="e.g. April 3, 2025" oninput="updateLetters()">
+        <input class="field-input" id="f-freeze" placeholder="e.g. April 3, 2025" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Wallet / TX Hash (if known)</label>
-        <input class="field-input" id="f-wallet" placeholder="Paste TX ID or wallet address" oninput="updateLetters()">
+        <input class="field-input" id="f-wallet" placeholder="Paste TX ID or wallet address" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">How Recruited</label>
-        <input class="field-input" id="f-recruit" placeholder="e.g. WhatsApp, dating app" oninput="updateLetters()">
+        <input class="field-input" id="f-recruit" placeholder="e.g. WhatsApp, dating app" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">Bank / Payment App Used</label>
-        <input class="field-input" id="f-bank" placeholder="e.g. Schwab / Zelle" oninput="updateLetters()">
+        <input class="field-input" id="f-bank" placeholder="e.g. Schwab / Zelle" oninput="updateLetters(); saveFields()">
       </div>
       <div class="field-group">
         <label class="field-label">IC3 Complaint # (after filing)</label>
-        <input class="field-input" id="f-ic3" placeholder="Will appear after IC3 filing" oninput="updateLetters()">
+        <input class="field-input" id="f-ic3" placeholder="Will appear after IC3 filing" oninput="updateLetters(); saveFields()">
       </div>
     </div>
 
@@ -1261,6 +1789,243 @@ body {
 </div>
 
 
+
+<!-- ============ SCAM TYPES TAB ============ -->
+<div id="tab-scamtypes" class="tab-panel">
+  <div class="section-header">
+    <h2>Know the Scam Types</h2>
+    <p>Many victims don't know what category their experience falls into. Identifying the scam type helps you file with the right agencies, use the right language in your reports, and find others who have been through the same thing.</p>
+  </div>
+
+  <div class="card card-coral" style="margin-bottom:2rem;">
+    <p style="font-size:14px; color:var(--text-muted); line-height:1.8;">
+      <strong style="color:var(--coral);">These categories overlap.</strong> A pig butchering scam almost always involves elements of romance fraud. A Ponzi scheme may also involve employment fraud. Use the quiz tab to identify your specific situation — these descriptions will help you understand the broader pattern.
+    </p>
+  </div>
+
+  <!-- PIG BUTCHERING -->
+  <div class="scam-type-card">
+    <span class="scam-type-tag tag-crypto">Crypto Fraud</span>
+    <div class="scam-type-header">
+      <div class="scam-type-icon" style="background:rgba(255,92,92,0.1);">&#127183;</div>
+      <div>
+        <div class="scam-type-name">Pig Butchering</div>
+        <div class="scam-type-aka">Sha Zhu Pan &nbsp;|&nbsp; Investment Romance Scam &nbsp;|&nbsp; Fake Crypto Exchange</div>
+      </div>
+    </div>
+    <div class="scam-type-body">
+      <p>The most sophisticated and financially devastating scam operating today. A stranger builds a relationship over weeks or months through dating apps, social media, or messaging platforms — then introduces a fake cryptocurrency trading platform with fabricated profits. Victims are encouraged to deposit progressively larger amounts. When they attempt to withdraw, accounts are frozen. Operations are run by organized criminal networks from forced labor compounds in Southeast Asia.</p>
+      <p style="margin-top:0.75rem;"><strong style="color:var(--text);">Who gets targeted:</strong> Everyone. Professionals, retirees, engineers, healthcare workers, people recently divorced or widowed. Intelligence and education provide no protection — these operations are psychologically engineered by professionals.</p>
+      <p style="margin-top:0.75rem;"><strong style="color:var(--text);">Scale:</strong> $5.8 billion stolen from US victims in 2024. $75 billion globally since 2020.</p>
+    </div>
+    <div class="scam-warning-signs">
+      <h5>Warning Signs</h5>
+      <ul>
+        <li>Stranger initiates contact on social media, dating app, or messaging platform</li>
+        <li>Relationship develops quickly — frequent messages, emotional investment</li>
+        <li>They mention a trading platform and show their own "profits"</li>
+        <li>Early small withdrawals work to build trust — then blocked when amounts grow</li>
+        <li>Platform shows consistent profits with no losing trades</li>
+        <li>Withdrawal requires paying a "tax," "fee," or "insurance"</li>
+        <li>You were added to a group chat of "fellow investors"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ROMANCE SCAM -->
+  <div class="scam-type-card">
+    <span class="scam-type-tag tag-romance">Romance Fraud</span>
+    <div class="scam-type-header">
+      <div class="scam-type-icon" style="background:rgba(255,92,92,0.1);">&#10084;</div>
+      <div>
+        <div class="scam-type-name">Romance Scam</div>
+        <div class="scam-type-aka">Catfishing &nbsp;|&nbsp; Online Dating Fraud &nbsp;|&nbsp; Military Romance Scam</div>
+      </div>
+    </div>
+    <div class="scam-type-body">
+      <p>A scammer creates a fake persona — often using stolen photos of attractive, successful-looking people — and builds a romantic relationship online. After establishing emotional trust, they request money for emergencies, travel, medical bills, or investments. The relationship feels entirely real; the person does not exist. Romance scams are the emotional foundation of pig butchering operations but also operate independently.</p>
+      <p style="margin-top:0.75rem;"><strong style="color:var(--text);">Common personas:</strong> Military personnel overseas, doctors working abroad, widowed professionals, oil rig workers, international business travelers.</p>
+    </div>
+    <div class="scam-warning-signs">
+      <h5>Warning Signs</h5>
+      <ul>
+        <li>Met online — never in person despite extended relationship</li>
+        <li>Excuses for why they cannot video call or the video is poor quality</li>
+        <li>Declares love or deep connection unusually quickly</li>
+        <li>Always has a crisis requiring money — medical, travel, legal</li>
+        <li>Requests wire transfer, gift cards, or cryptocurrency — not bank transfer</li>
+        <li>Reverse image search of their photos finds them elsewhere online</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PONZI SCHEME -->
+  <div class="scam-type-card">
+    <span class="scam-type-tag tag-investment">Investment Fraud</span>
+    <div class="scam-type-header">
+      <div class="scam-type-icon" style="background:rgba(245,158,11,0.1);">&#128200;</div>
+      <div>
+        <div class="scam-type-name">Ponzi Scheme</div>
+        <div class="scam-type-aka">Investment Fraud &nbsp;|&nbsp; High-Yield Investment Program (HYIP)</div>
+      </div>
+    </div>
+    <div class="scam-type-body">
+      <p>Early investors are paid "returns" using money from later investors — not from actual profits. The scheme requires constant recruitment of new money to sustain payouts. When recruitment slows, the operation collapses and operators disappear with remaining funds. Crypto has supercharged Ponzi schemes by enabling rapid global fundraising with minimal oversight.</p>
+      <p style="margin-top:0.75rem;"><strong style="color:var(--text);">Famous examples:</strong> Bernie Madoff ($65B), Bitconnect ($2.4B), OneCoin ($4B+).</p>
+    </div>
+    <div class="scam-warning-signs">
+      <h5>Warning Signs</h5>
+      <ul>
+        <li>Guaranteed returns regardless of market conditions</li>
+        <li>Returns are unusually high and consistent (10%+ monthly)</li>
+        <li>Vague or secretive about how returns are generated</li>
+        <li>Difficulty withdrawing — excuses, delays, partial payments</li>
+        <li>Pressure to recruit others to maximize your returns</li>
+        <li>Not registered with SEC, CFTC, or FINRA</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PYRAMID SCHEME -->
+  <div class="scam-type-card">
+    <span class="scam-type-tag tag-investment">Multi-Level Fraud</span>
+    <div class="scam-type-header">
+      <div class="scam-type-icon" style="background:rgba(245,158,11,0.1);">&#9651;</div>
+      <div>
+        <div class="scam-type-name">Pyramid Scheme</div>
+        <div class="scam-type-aka">MLM Fraud &nbsp;|&nbsp; Network Marketing Fraud &nbsp;|&nbsp; Chain Referral Scheme</div>
+      </div>
+    </div>
+    <div class="scam-type-body">
+      <p>Participants earn money primarily by recruiting new members rather than selling real products or services. Each level pays the level above it. The structure is mathematically unsustainable — the majority of participants lose money. Crypto pyramid schemes often disguise themselves as "decentralized" investment clubs or token staking programs.</p>
+    </div>
+    <div class="scam-warning-signs">
+      <h5>Warning Signs</h5>
+      <ul>
+        <li>Income depends more on recruiting than on product sales</li>
+        <li>Required upfront investment to "join" or "unlock" earning potential</li>
+        <li>Complex commission structures rewarding recruitment depth</li>
+        <li>Products are overpriced, low quality, or don't really exist</li>
+        <li>Pressure to recruit friends and family immediately</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RUG PULL -->
+  <div class="scam-type-card">
+    <span class="scam-type-tag tag-crypto">Crypto Fraud</span>
+    <div class="scam-type-header">
+      <div class="scam-type-icon" style="background:rgba(0,201,167,0.1);">&#128583;</div>
+      <div>
+        <div class="scam-type-name">Rug Pull</div>
+        <div class="scam-type-aka">Token Exit Scam &nbsp;|&nbsp; DeFi Fraud &nbsp;|&nbsp; NFT Scam</div>
+      </div>
+    </div>
+    <div class="scam-type-body">
+      <p>Developers create a cryptocurrency token or NFT project, generate artificial hype and trading volume, attract investment, then suddenly withdraw all liquidity or sell their holdings — causing the token price to crash to zero. Investors are left with worthless tokens and no recourse. Rug pulls are extremely common in DeFi (decentralized finance) and the NFT market.</p>
+    </div>
+    <div class="scam-warning-signs">
+      <h5>Warning Signs</h5>
+      <ul>
+        <li>Anonymous development team with no verifiable identities</li>
+        <li>Promises of revolutionary technology with no working product</li>
+        <li>Artificially inflated trading volume to create FOMO</li>
+        <li>Smart contract allows developers to mint unlimited tokens</li>
+        <li>No liquidity lock — developers can withdraw funds at any time</li>
+        <li>Extreme price appreciation in short period with celebrity endorsements</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EMPLOYMENT SCAM -->
+  <div class="scam-type-card">
+    <span class="scam-type-tag tag-employment">Employment Fraud</span>
+    <div class="scam-type-header">
+      <div class="scam-type-icon" style="background:rgba(74,158,255,0.1);">&#128188;</div>
+      <div>
+        <div class="scam-type-name">Job / Employment Scam</div>
+        <div class="scam-type-aka">Work From Home Fraud &nbsp;|&nbsp; Money Mule Recruitment &nbsp;|&nbsp; Task Scam</div>
+      </div>
+    </div>
+    <div class="scam-type-body">
+      <p>Victims are recruited for fake remote jobs — often "product reviewers," "app testers," or "crypto task workers." They are asked to complete tasks on a platform and shown accumulating earnings. To "unlock" payments or advance to higher-paying tasks, they must deposit money. The job never existed. This category overlaps significantly with pig butchering — the "task platform" is often the same fake infrastructure.</p>
+      <p style="margin-top:0.75rem;"><strong style="color:var(--text);">Money mule variant:</strong> Some victims are unknowingly recruited to transfer stolen funds, making them unwitting participants in money laundering with potential criminal liability.</p>
+    </div>
+    <div class="scam-warning-signs">
+      <h5>Warning Signs</h5>
+      <ul>
+        <li>Recruited via WhatsApp, Telegram, or social media DM — not a job board</li>
+        <li>No interview, no contract, immediate high-paying work</li>
+        <li>Must deposit money to start or advance to higher-paying tasks</li>
+        <li>Earnings accumulate but cannot be withdrawn without paying fees</li>
+        <li>Asked to receive and transfer funds through your personal bank account</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- IMPERSONATION -->
+  <div class="scam-type-card">
+    <span class="scam-type-tag tag-romance">Impersonation</span>
+    <div class="scam-type-header">
+      <div class="scam-type-icon" style="background:rgba(255,92,92,0.1);">&#128373;</div>
+      <div>
+        <div class="scam-type-name">Government / Authority Impersonation</div>
+        <div class="scam-type-aka">IRS Scam &nbsp;|&nbsp; Social Security Scam &nbsp;|&nbsp; FBI Impersonation</div>
+      </div>
+    </div>
+    <div class="scam-type-body">
+      <p>Scammers impersonate IRS agents, Social Security Administration officials, FBI agents, or immigration authorities and threaten arrest, deportation, or legal action unless immediate payment is made. Payment is demanded via gift cards, wire transfer, or cryptocurrency. Government agencies never demand immediate payment by phone or threaten arrest without prior notice.</p>
+    </div>
+    <div class="scam-warning-signs">
+      <h5>Warning Signs</h5>
+      <ul>
+        <li>Unsolicited call from a "government agency" demanding immediate payment</li>
+        <li>Threat of arrest, deportation, or legal action if you don't pay now</li>
+        <li>Requests payment via gift cards, wire transfer, or cryptocurrency</li>
+        <li>Instructs you to keep the call secret from family or friends</li>
+        <li>Caller ID shows a government number — easily spoofed</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RECOVERY SCAM -->
+  <div class="scam-type-card" style="border-color:rgba(255,92,92,0.3);">
+    <span class="scam-type-tag tag-romance">Second Victimization</span>
+    <div class="scam-type-header">
+      <div class="scam-type-icon" style="background:rgba(255,92,92,0.15);">&#128680;</div>
+      <div>
+        <div class="scam-type-name">Recovery Scam</div>
+        <div class="scam-type-aka">Fund Recovery Fraud &nbsp;|&nbsp; Asset Recovery Scam</div>
+      </div>
+    </div>
+    <div class="scam-type-body">
+      <p style="color:var(--text);">If you have already been scammed, <strong>you are now a target for recovery scams.</strong> Fraudsters monitor victim forums, social media posts, and court filings to identify recent fraud victims — then offer to recover your funds for an upfront fee. They may claim to be lawyers, blockchain forensics firms, or government-affiliated recovery specialists. They are not. This is a second crime designed to steal from people who are already suffering.</p>
+      <p style="margin-top:0.75rem; color:var(--coral);"><strong>This toolkit is free. No fees. No recovery services. No charges. Ever. If anyone asks you to pay to recover your funds — that is a scam.</strong></p>
+    </div>
+    <div class="scam-warning-signs">
+      <h5>Warning Signs</h5>
+      <ul>
+        <li>Contacted you after you posted about being scammed</li>
+        <li>Guarantees they can recover your specific funds</li>
+        <li>Requires upfront payment before any recovery action</li>
+        <li>Claims to have special connections to exchanges or law enforcement</li>
+        <li>Asks for your crypto wallet credentials or private keys</li>
+        <li>Pressure to act immediately before the "window closes"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-teal" style="margin-top:1rem;">
+    <p style="font-size:14px; color:var(--text-muted);">
+      <strong style="color:var(--teal);">Unsure which type applies to you?</strong> Take the quiz — it will identify the specific patterns in your situation and guide you to the right reporting agencies.
+    </p>
+    <div style="margin-top:1rem;">
+      <button onclick="switchTab('quiz', document.querySelector('.nav-tabs button:last-child'))" class="btn btn-teal">Take the Scam Detection Quiz &rarr;</button>
+    </div>
+  </div>
+
+</div>
+
 <!-- ============ TAB 6: FEEDBACK ============ -->
 <div id="tab-feedback" class="tab-panel">
   <div class="section-header">
@@ -1278,10 +2043,10 @@ body {
   <div style="background:var(--bg2); border:1px solid var(--border); border-radius:12px; overflow:hidden;">
     <div style="padding:1rem 1.5rem; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
       <span style="font-family:'Oswald',sans-serif; font-size:1rem; font-weight:500; color:var(--text); letter-spacing:0.04em;">Toolkit Feedback Form</span>
-      <a href="https://forms.gle/X8ewz6Kh2SQxnYNP6" target="_blank" style="font-size:12px; color:var(--teal); text-decoration:none;">Open in new tab</a>
+      <a href="GOOGLE_FORM_DIRECT_LINK" target="_blank" style="font-size:12px; color:var(--teal); text-decoration:none;">Open in new tab</a>
     </div>
     <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSc-IoYDRxDMAc_IplI_L9pP8scssSbJNIihx4Yy-DOmQGib5Q/viewform?embedded=true" width="640" height="2854" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>"
+      src="GOOGLE_FORM_EMBED_URL"
       width="100%"
       height="900"
       frameborder="0"
@@ -1291,6 +2056,170 @@ body {
     >Loading form…</iframe>
   </div>
 
+  <div style="margin-top:1.5rem; padding:14px 18px; background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:8px; font-size:13px; color:var(--text-muted);">
+    <strong style="color:var(--amber);">To activate this form:</strong> Create a Google Form at <a href="https://forms.google.com" target="_blank" style="color:var(--teal);">forms.google.com</a>, then replace <code style="color:var(--teal); font-size:11px;">GOOGLE_FORM_EMBED_URL</code> in the page source with your form's embed link (File → Embed → Copy HTML → grab the src URL). Replace <code style="color:var(--teal); font-size:11px;">GOOGLE_FORM_DIRECT_LINK</code> with the direct share link.
+  </div>
+</div>
+
+
+<!-- ============ TAB 7: SHARE ============ -->
+<div id="tab-share" class="tab-panel">
+  <div class="section-header">
+    <h2>Share This Toolkit</h2>
+    <p>Every share reaches someone who may not know they need this yet. You don't have to announce you were scammed — you can frame this as something you found that others should know about.</p>
+  </div>
+
+  <div class="card card-teal" style="margin-bottom:2rem;">
+    <p style="font-size:14px; color:var(--text-muted); line-height:1.8;">
+      <strong style="color:var(--teal);">A note about sharing in group chats:</strong> It's common to hesitate sharing in a group where others were also scammed — you don't want to look like you're profiting from their pain or offering a "recovery service." You're not. You can share this simply as: <em style="color:var(--text)">"Found this — thought it might be useful for anyone dealing with something similar."</em> No explanation required. The toolkit speaks for itself. And if anyone in the group asks — yes, it is completely free. No fees, no recovery services, no collections. Ever.
+    </p>
+  </div>
+
+  <!-- SHARE MESSAGES -->
+  <div style="margin-bottom:2rem;">
+    <h3 style="font-family:'Oswald',sans-serif; font-weight:500; font-size:1.1rem; color:var(--text); margin-bottom:1rem; letter-spacing:0.04em;">Choose Your Message</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:1.25rem;">
+      <button class="share-msg-btn active" onclick="selectMsg(0, this)">Neutral</button>
+      <button class="share-msg-btn" onclick="selectMsg(1, this)">Personal</button>
+      <button class="share-msg-btn" onclick="selectMsg(2, this)">Informational</button>
+      <button class="share-msg-btn" onclick="selectMsg(3, this)">Technical</button>
+      <button class="share-msg-btn" onclick="selectMsg(4, this)">Group Chat</button>
+    </div>
+    <div style="background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:1.25rem; position:relative;">
+      <p id="share-msg-text" style="font-size:14px; color:var(--text); line-height:1.8; margin-bottom:0.75rem;"></p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-teal" onclick="copyShareMsg()">Copy Message</button>
+        <button class="btn btn-ghost" style="font-size:11px;" onclick="editShareMsg()">Edit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARE BUTTONS -->
+  <h3 style="font-family:'Oswald',sans-serif; font-weight:500; font-size:1.1rem; color:var(--text); margin-bottom:1rem; letter-spacing:0.04em;">Share On</h3>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(160px, 1fr)); gap:10px; margin-bottom:2rem;">
+
+    <button class="share-platform-btn" onclick="shareTo('x')">
+      <span class="share-icon">&#120143;</span>
+      <span class="share-label">X / Twitter</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('facebook')">
+      <span class="share-icon">f</span>
+      <span class="share-label">Facebook</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('linkedin')">
+      <span class="share-icon">in</span>
+      <span class="share-label">LinkedIn</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('reddit')">
+      <span class="share-icon">&#128123;</span>
+      <span class="share-label">Reddit</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('whatsapp')">
+      <span class="share-icon">&#128172;</span>
+      <span class="share-label">WhatsApp</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('telegram')">
+      <span class="share-icon">&#9992;</span>
+      <span class="share-label">Telegram</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('signal')">
+      <span class="share-icon">&#128275;</span>
+      <span class="share-label">Signal</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('banchan')">
+      <span class="share-icon">&#9997;</span>
+      <span class="share-label">Band / BonChat</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('email')">
+      <span class="share-icon">&#9993;</span>
+      <span class="share-label">Email</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('sms')">
+      <span class="share-icon">&#128241;</span>
+      <span class="share-label">Text / SMS</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('copy')">
+      <span class="share-icon">&#128279;</span>
+      <span class="share-label">Copy Link</span>
+    </button>
+
+    <button class="share-platform-btn" onclick="shareTo('native')" id="native-share-btn" style="display:none;">
+      <span class="share-icon">&#8679;</span>
+      <span class="share-label">More Apps</span>
+    </button>
+
+  </div>
+
+  <!-- REDDIT CHANNELS -->
+  <div style="background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-bottom:2rem;">
+    <h3 style="font-family:'Oswald',sans-serif; font-weight:500; font-size:1rem; color:var(--amber); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1rem;">Best Reddit Communities</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px;">
+      <a class="reddit-link" href="https://reddit.com/r/Scams" target="_blank">r/Scams <span>Largest scam community</span></a>
+      <a class="reddit-link" href="https://reddit.com/r/CryptoScams" target="_blank">r/CryptoScams <span>Crypto-specific</span></a>
+      <a class="reddit-link" href="https://reddit.com/r/personalfinance" target="_blank">r/personalfinance <span>Huge general audience</span></a>
+      <a class="reddit-link" href="https://reddit.com/r/povertyfinance" target="_blank">r/povertyfinance <span>High-impact victims</span></a>
+      <a class="reddit-link" href="https://reddit.com/r/dating_advice" target="_blank">r/dating_advice <span>Romance scam angle</span></a>
+      <a class="reddit-link" href="https://reddit.com/r/Fraud" target="_blank">r/Fraud <span>General fraud victims</span></a>
+    </div>
+  </div>
+
+  <!-- X HASHTAGS -->
+  <div style="background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.5rem;">
+    <h3 style="font-family:'Oswald',sans-serif; font-weight:500; font-size:1rem; color:var(--amber); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1rem;">Hashtags for X / Twitter</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <span class="hashtag-tag" onclick="copyTag(this)">#PigButchering</span>
+      <span class="hashtag-tag" onclick="copyTag(this)">#CryptoScam</span>
+      <span class="hashtag-tag" onclick="copyTag(this)">#CryptoFraud</span>
+      <span class="hashtag-tag" onclick="copyTag(this)">#ShaZhuPan</span>
+      <span class="hashtag-tag" onclick="copyTag(this)">#InvestmentFraud</span>
+      <span class="hashtag-tag" onclick="copyTag(this)">#RomanceScam</span>
+      <span class="hashtag-tag" onclick="copyTag(this)">#ScamAlert</span>
+      <span class="hashtag-tag" onclick="copyTag(this)">#FraudVictim</span>
+    </div>
+    <p style="font-size:12px; color:var(--text-muted); margin-top:10px;">Click any tag to copy. Tag @FBI @FTC @CFTC in your post.</p>
+  </div>
+
+</div>
+
+<!-- ============ TAB 8: QUIZ ============ -->
+<div id="tab-quiz" class="tab-panel">
+  <div class="section-header">
+    <h2>Was It a Scam?</h2>
+    <p>Answer these questions honestly. This quiz is based on documented patterns from FBI, FTC, and INTERPOL reports on pig butchering operations. Your answers will generate a determination.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:2rem; border-color:rgba(255,92,92,0.2);">
+    <p style="font-size:14px; color:var(--text-muted); line-height:1.8;">
+      <strong style="color:var(--coral);">If someone in your group is telling you it wasn't a scam</strong> — that person may also be a victim in denial, or in rare cases, an unwitting participant. This quiz is not about blame. It's about giving you a clear-eyed assessment based on facts, not feelings.
+    </p>
+  </div>
+
+  <div id="quiz-container">
+    <div id="quiz-progress-bar-wrap" style="background:var(--bg3); border-radius:10px; height:4px; margin-bottom:2rem; overflow:hidden;">
+      <div id="quiz-progress-bar" style="height:4px; background:var(--teal); width:0%; transition:width 0.4s ease; border-radius:10px;"></div>
+    </div>
+    <div id="quiz-step-indicator" style="font-size:12px; color:var(--text-muted); margin-bottom:1.5rem; text-align:right;"></div>
+    <div id="quiz-question-wrap"></div>
+  </div>
+
+  <div id="quiz-result" style="display:none;"></div>
+
+  <div style="margin-top:1.5rem; text-align:center; display:none;" id="quiz-restart-wrap">
+    <button class="btn btn-ghost" onclick="startQuiz()">Start Over</button>
+  </div>
+</div>
+
 
 </main>
 
@@ -1299,7 +2228,7 @@ body {
   <p style="margin-top:6px;">Share freely. File early. <a href="https://ic3.gov" target="_blank">IC3.gov</a> &nbsp;|&nbsp; <a href="https://reportfraud.ftc.gov" target="_blank">FTC</a> &nbsp;|&nbsp; <a href="https://dfpi.ca.gov/submit-a-complaint/" target="_blank">CA DFPI</a> &nbsp;|&nbsp; <a href="https://www.cftc.gov/ConsumerProtection/FileaTip/index.htm" target="_blank">CFTC</a> &nbsp;|&nbsp; <a href="https://www.sec.gov/submit-tip-or-complaint/tips-complaints-resources/report-suspected-securities-fraud-or-wrongdoing" target="_blank">SEC</a> &nbsp;|&nbsp; <a href="https://www.chainabuse.com/report" target="_blank">Chainabuse</a></p>
   <p style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border);">
     Created by <a href="https://caraabrown.com" target="_blank">Cara Brown</a> &nbsp;|&nbsp; <a href="https://getclarity.consulting" target="_blank">Alanne International / GetClarity.Consulting</a>
-    <br><span style="font-size:11px; color:var(--text-muted); margin-top:4px; display:block;">Service Designer &amp; Researcher — Oakland, CA &nbsp;|&nbsp; Share freely. No permission needed.</span>
+    <br><span style="font-size:11px; color:var(--text-muted); margin-top:4px; display:block;">Service Designer &amp; Researcher — Oakland, CA &nbsp;|&nbsp; Share freely. No permission needed. This site is completely free — no fees, no charges, no collections, ever. If anyone asks you to pay to access or use this resource, that is a scam.</span>
   </p>
 </footer>
 
@@ -1311,6 +2240,11 @@ function switchTab(id, btn) {
   btn.classList.add('active');
   if (id === 'letters') updateLetters();
   if (id === 'congress') updateCongress();
+  if (id === 'quiz') startQuiz();
+  if (id === 'share') {
+    const el = document.getElementById('share-msg-text');
+    if (el && !el.textContent.trim()) el.textContent = shareMsgs[0];
+  }
 }
 
 function switchLetter(id, btn) {
@@ -1483,6 +2417,545 @@ function selectNone() {
 function openLink(url) {
   window.open(url, '_blank');
 }
+
+
+
+// ===== SHARE =====
+const SITE_URL = 'https://caraabrown.github.io/cryptofraudrecovery/';
+const SITE_TITLE = 'Crypto Fraud Recovery Toolkit — Free Pig Butchering Victim Guide';
+
+const shareMsgs = [
+  // 0 Neutral
+  'Found this free toolkit for crypto fraud victims — step-by-step protocol, government report templates, blockchain forensics guide, and a downloadable checklist. No signup, no cost. Share with anyone who needs it.\n\n' + SITE_URL,
+  // 1 Personal
+  'I was scammed in a pig butchering crypto scheme. Instead of staying silent, I built a free recovery toolkit. IC3, FTC, CFTC, SEC, DFPI, FBI — pre-written letters, blockchain forensics guide, and a printable checklist. Free. For anyone who needs it.\n\n' + SITE_URL,
+  // 2 Informational
+  'Pig butchering scams stole $5.8 billion from Americans in 2024. Most victims don't know where to start. This free toolkit walks you through every federal and state agency filing — in order — with pre-written letters and a printable checklist.\n\n' + SITE_URL,
+  // 3 Technical
+  'After being targeted by a fake crypto exchange, I used browser dev tools to confirm the trading was completely simulated — ECharts visualization, no real market. Then filed with IC3, FTC, CFTC, SEC, DFPI, and FBI in one day. Full forensics guide here — free.\n\n' + SITE_URL,
+  // 4 Group chat
+  'Found this — thought it might be useful for anyone dealing with something similar. Free toolkit, no signup.\n\n' + SITE_URL
+];
+
+let currentMsgIndex = 0;
+
+function selectMsg(idx, btn) {
+  currentMsgIndex = idx;
+  document.querySelectorAll('.share-msg-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('share-msg-text').textContent = shareMsgs[idx];
+}
+
+function copyShareMsg() {
+  navigator.clipboard.writeText(shareMsgs[currentMsgIndex]).then(() => {
+    showShareToast('Message copied to clipboard');
+  });
+}
+
+function editShareMsg() {
+  const p = document.getElementById('share-msg-text');
+  const current = p.textContent;
+  const ta = document.createElement('textarea');
+  ta.value = current;
+  ta.style.cssText = 'width:100%;min-height:120px;background:var(--bg3);border:1px solid var(--teal);border-radius:8px;padding:10px;color:var(--text);font-family:IBM Plex Sans,sans-serif;font-size:13px;';
+  p.replaceWith(ta);
+  ta.focus();
+  ta.addEventListener('blur', () => {
+    shareMsgs[currentMsgIndex] = ta.value;
+    const newP = document.createElement('p');
+    newP.id = 'share-msg-text';
+    newP.style.cssText = 'font-size:14px;color:var(--text);line-height:1.8;margin-bottom:0.75rem;';
+    newP.textContent = ta.value;
+    ta.replaceWith(newP);
+  });
+}
+
+function shareTo(platform) {
+  const msg = encodeURIComponent(shareMsgs[currentMsgIndex]);
+  const url = encodeURIComponent(SITE_URL);
+  const title = encodeURIComponent(SITE_TITLE);
+  const raw = shareMsgs[currentMsgIndex];
+
+  const links = {
+    x: 'https://twitter.com/intent/tweet?text=' + msg,
+    facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
+    linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + url,
+    reddit: 'https://www.reddit.com/submit?url=' + url + '&title=' + title,
+    whatsapp: 'https://api.whatsapp.com/send?text=' + msg,
+    telegram: 'https://t.me/share/url?url=' + url + '&text=' + encodeURIComponent(shareMsgs[currentMsgIndex].split('\n')[0]),
+    signal: 'https://signal.me/#p/' + url,
+    banchan: 'https://band.us/band',
+    email: 'mailto:?subject=' + title + '&body=' + msg,
+    sms: 'sms:?body=' + msg,
+  };
+
+  if (platform === 'copy') {
+    navigator.clipboard.writeText(SITE_URL).then(() => showShareToast('Link copied to clipboard'));
+    return;
+  }
+
+  if (platform === 'native' && navigator.share) {
+    navigator.share({ title: SITE_TITLE, text: raw, url: SITE_URL });
+    return;
+  }
+
+  if (platform === 'banchan') {
+    navigator.clipboard.writeText(raw).then(() => {
+      showShareToast('Message copied — paste into Band or BonChat');
+    });
+    return;
+  }
+
+  if (platform === 'signal') {
+    navigator.clipboard.writeText(raw).then(() => {
+      showShareToast('Message copied — paste into Signal');
+    });
+    return;
+  }
+
+  if (links[platform]) window.open(links[platform], '_blank');
+}
+
+function copyTag(el) {
+  navigator.clipboard.writeText(el.textContent).then(() => {
+    el.classList.add('copied');
+    setTimeout(() => el.classList.remove('copied'), 1500);
+  });
+}
+
+let shareToastTimer;
+function showShareToast(msg) {
+  clearTimeout(shareToastTimer);
+  const t = document.getElementById('share-toast');
+  if (!t) {
+    const div = document.createElement('div');
+    div.id = 'share-toast';
+    div.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:rgba(0,201,167,0.15);border:1px solid #00c9a7;color:#00c9a7;padding:12px 24px;border-radius:30px;font-size:13px;font-weight:600;z-index:300;transition:transform 0.3s ease;pointer-events:none;';
+    document.body.appendChild(div);
+  }
+  const toast = document.getElementById('share-toast');
+  toast.textContent = msg;
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  shareToastTimer = setTimeout(() => { toast.style.transform = 'translateX(-50%) translateY(100px)'; }, 3000);
+}
+
+// Show native share if available
+if (navigator.share) {
+  const btn = document.getElementById('native-share-btn');
+  if (btn) btn.style.display = 'flex';
+}
+
+// Initialize share message
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('share-msg-text');
+  if (el) el.textContent = shareMsgs[0];
+});
+setTimeout(() => {
+  const el = document.getElementById('share-msg-text');
+  if (el && !el.textContent) el.textContent = shareMsgs[0];
+}, 100);
+
+
+// ===== QUIZ =====
+const quizQuestions = [
+  {
+    q: "How did you first meet or hear about this platform?",
+    sub: "Think about the very first contact.",
+    flag: "red",
+    options: [
+      { text: "A stranger contacted me on a dating app, social media, or messaging app and eventually mentioned it", score: 3, flag: "Unsolicited contact from a stranger who built rapport before mentioning the platform is the #1 pig butchering recruitment method." },
+      { text: "Someone I knew for a short time (weeks) enthusiastically recommended it", score: 2, flag: "Short-duration trust-building before financial introduction is a documented scam pattern." },
+      { text: "I found it through an advertisement or web search", score: 1 },
+      { text: "I've used it for years or it was recommended by a long-trusted contact", score: 0 }
+    ]
+  },
+  {
+    q: "Were your initial deposits small, with encouragement to deposit more over time?",
+    sub: "Pig butchering operations build trust through small early 'profits' before encouraging larger deposits.",
+    flag: "red",
+    options: [
+      { text: "Yes — I started small, saw profits, and was encouraged to deposit more", score: 3, flag: "Progressive deposit escalation after showing early 'profits' is the core pig butchering psychological manipulation." },
+      { text: "I deposited a large amount immediately at their strong encouragement", score: 2, flag: "Pressure to deposit large amounts quickly is a fraud indicator." },
+      { text: "The deposit amounts were my own choice with no outside pressure", score: 0 }
+    ]
+  },
+  {
+    q: "Did the platform show impressive profits or returns quickly?",
+    sub: "Real investments carry real risk and show real losses sometimes. Fake platforms always show gains.",
+    flag: "red",
+    options: [
+      { text: "Yes — my account grew steadily and consistently with few or no losing trades", score: 3, flag: "Consistently profitable fake trading is a hallmark of simulated pig butchering platforms." },
+      { text: "I had some losses but overall the platform showed strong growth", score: 2 },
+      { text: "Results were mixed and realistic", score: 0 }
+    ]
+  },
+  {
+    q: "What happened when you tried to withdraw your funds?",
+    sub: "This is the most definitive single indicator.",
+    flag: "red",
+    options: [
+      { text: "My withdrawal was blocked, delayed, or my account was frozen", score: 3, flag: "Withdrawal blocking is the operational signature of pig butchering fraud. Real exchanges do not freeze accounts without documented regulatory cause." },
+      { text: "I was told I needed to pay a fee, tax, or verification deposit to withdraw", score: 3, flag: "Fee-to-withdraw demands after blocking are additional theft mechanisms — a second crime layered on the first." },
+      { text: "I haven't tried to withdraw yet", score: 1 },
+      { text: "I withdrew successfully", score: 0 }
+    ]
+  },
+  {
+    q: "Does the platform have a verifiable physical address, regulatory registration, or company history you can independently confirm?",
+    sub: "Search for the company name plus 'license,' 'registration,' or 'FINRA' — not just the information they provide.",
+    flag: "amber",
+    options: [
+      { text: "No — I cannot verify any of this independently", score: 3, flag: "Unverifiable identity is a fraud indicator. All legitimate exchanges are registered with FinCEN, CFTC, or state regulators." },
+      { text: "The platform provides information but I haven't been able to independently confirm it", score: 2 },
+      { text: "Yes — I've independently confirmed their regulatory registration", score: 0 }
+    ]
+  },
+  {
+    q: "Did the person who introduced you to the platform also claim to be profiting from it?",
+    sub: "Recruiters in pig butchering operations pose as fellow successful investors.",
+    flag: "amber",
+    options: [
+      { text: "Yes — they showed me their profits and said they were making money too", score: 3, flag: "Fabricated proof of personal profit is standard social engineering in pig butchering recruitment." },
+      { text: "They mentioned it but I didn't see proof", score: 2 },
+      { text: "No — they were just passing on information without personal claims", score: 0 }
+    ]
+  },
+  {
+    q: "Were you added to a group chat with other 'investors' who also seemed to be profiting?",
+    sub: "Group chats with apparent investors create false social proof.",
+    flag: "amber",
+    options: [
+      { text: "Yes — I was in a group where others frequently shared their profits", score: 3, flag: "Manufactured social proof via fake investor groups is a documented pig butchering tactic used to validate the platform's legitimacy." },
+      { text: "There was a group but I'm not sure if others were real investors", score: 1 },
+      { text: "No group chat was involved", score: 0 }
+    ]
+  },
+  {
+    q: "Did the platform involve binary options — CALL/PUT buttons with countdown timers?",
+    sub: "Binary options with countdown timers are unregistered in the US and a common pig butchering mechanism.",
+    flag: "amber",
+    options: [
+      { text: "Yes — there were CALL/PUT buttons and countdown timers (60 seconds to 10 minutes)", score: 3, flag: "Unregistered binary options with countdown timers are illegal in the US and a documented feature of pig butchering platforms." },
+      { text: "There were trading features but I'm not sure of the type", score: 1 },
+      { text: "No — it was standard buy/sell cryptocurrency trading", score: 0 }
+    ]
+  },
+  {
+    q: "Has anyone told you that you CAN recover your funds if you pay an additional fee, hire a specific recovery service, or make another deposit?",
+    sub: "Recovery scams often target the same victims after the initial fraud.",
+    flag: "red",
+    options: [
+      { text: "Yes — someone has told me I can get my money back for a fee", score: 3, flag: "Recovery scams are a second fraud targeting the same victims. No legitimate recovery requires upfront payment. This is a separate crime." },
+      { text: "I've seen ads for recovery services but haven't been contacted directly", score: 1 },
+      { text: "No one has offered recovery services to me", score: 0 }
+    ]
+  },
+  {
+    q: "When you look up the platform's domain registration (whois.domaintools.com), how old is it?",
+    sub: "Legitimate exchanges have domain histories of years. Scam platforms are typically newly registered.",
+    flag: "amber",
+    options: [
+      { text: "Less than 1 year old, or I cannot verify the domain age", score: 3, flag: "Newly registered domains are a fraud indicator. Most pig butchering platforms operate for months before shutting down and relaunching under a new domain." },
+      { text: "1–3 years old", score: 1 },
+      { text: "More than 3 years old with verifiable history", score: 0 }
+    ]
+  }
+];
+
+let quizAnswers = [];
+let quizCurrentQ = 0;
+let quizFlags = [];
+
+function startQuiz() {
+  quizAnswers = [];
+  quizFlags = [];
+  quizCurrentQ = 0;
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-container').style.display = 'block';
+  document.getElementById('quiz-restart-wrap').style.display = 'none';
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  const q = quizQuestions[quizCurrentQ];
+  const total = quizQuestions.length;
+  const pct = (quizCurrentQ / total) * 100;
+
+  document.getElementById('quiz-progress-bar').style.width = pct + '%';
+  document.getElementById('quiz-step-indicator').textContent = 'Question ' + (quizCurrentQ + 1) + ' of ' + total;
+
+  const flagBadge = q.flag === 'red'
+    ? '<span class="quiz-flag quiz-flag-red">Critical Indicator</span>'
+    : '<span class="quiz-flag quiz-flag-amber">Fraud Indicator</span>';
+
+  const optionsHtml = q.options.map((opt, i) =>
+    '<button class="quiz-option" onclick="selectQuizOption(' + i + ', this)">' +
+    '<div class="quiz-option-dot"></div>' +
+    '<span>' + opt.text + '</span>' +
+    '</button>'
+  ).join('');
+
+  document.getElementById('quiz-question-wrap').innerHTML =
+    '<div class="quiz-card">' +
+    flagBadge +
+    '<div class="quiz-question">' + q.q + '</div>' +
+    '<div class="quiz-subtext">' + q.sub + '</div>' +
+    '<div class="quiz-options">' + optionsHtml + '</div>' +
+    '<div class="quiz-nav">' +
+    (quizCurrentQ > 0 ? '<button class="btn btn-ghost" onclick="quizBack()" style="font-size:12px;">Back</button>' : '<span></span>') +
+    '<span style="font-size:12px; color:var(--text-muted);">Select an answer to continue</span>' +
+    '</div>' +
+    '</div>';
+}
+
+function selectQuizOption(idx, btn) {
+  const q = quizQuestions[quizCurrentQ];
+  const opt = q.options[idx];
+
+  document.querySelectorAll('.quiz-option').forEach(b => {
+    b.classList.remove('selected-yes', 'selected-no', 'selected-unsure');
+    b.querySelector('.quiz-option-dot').style.background = '';
+    b.querySelector('.quiz-option-dot').style.borderColor = '';
+  });
+
+  const isScam = opt.score >= 2;
+  const cls = opt.score >= 2 ? 'selected-yes' : (opt.score === 1 ? 'selected-unsure' : 'selected-no');
+  btn.classList.add(cls);
+  btn.querySelector('.quiz-option-dot').style.background = opt.score >= 2 ? 'var(--coral)' : (opt.score === 1 ? 'var(--amber)' : 'var(--teal)');
+
+  quizAnswers[quizCurrentQ] = opt.score;
+  if (opt.flag) quizFlags.push(opt.flag);
+
+  setTimeout(() => {
+    quizCurrentQ++;
+    if (quizCurrentQ >= quizQuestions.length) {
+      showQuizResult();
+    } else {
+      renderQuizQuestion();
+    }
+  }, 600);
+}
+
+function quizBack() {
+  if (quizCurrentQ > 0) {
+    quizCurrentQ--;
+    quizFlags = quizFlags.slice(0, quizCurrentQ);
+    renderQuizQuestion();
+  }
+}
+
+function showQuizResult() {
+  const total = quizAnswers.reduce((a, b) => a + b, 0);
+  const maxScore = quizQuestions.reduce((a, q) => a + Math.max(...q.options.map(o => o.score)), 0);
+  const pct = total / maxScore;
+
+  document.getElementById('quiz-progress-bar').style.width = '100%';
+  document.getElementById('quiz-container').style.display = 'none';
+  document.getElementById('quiz-restart-wrap').style.display = 'block';
+
+  let verdict, verdictClass, verdictColor, subtitle;
+
+  if (pct >= 0.65) {
+    verdict = 'This Was a Scam.';
+    verdictClass = 'verdict-confirmed';
+    verdictColor = 'var(--coral)';
+    subtitle = 'Based on your answers, the platform you used matches confirmed pig butchering fraud patterns documented by the FBI, FTC, and INTERPOL. This is not your fault. These operations are sophisticated, deliberate, and run by organized criminal networks. What happened to you happens to doctors, lawyers, engineers, and experienced investors every day.</p>
+    <div style="margin-top:1rem; padding:10px 16px; background:rgba(255,92,92,0.08); border:1px solid rgba(255,92,92,0.3); border-radius:8px; font-size:13px; color:var(--coral); text-align:left;">
+      <strong>Warning:</strong> Now that you know it was a scam, you may be contacted by "recovery services" offering to get your money back for a fee. This is a second scam targeting the same victims. This toolkit is free. No one associated with it will ever charge you anything.
+    </div>
+    <p style="display:none;">';
+  } else if (pct >= 0.35) {
+    verdict = 'Significant Fraud Indicators Present.';
+    verdictClass = 'verdict-likely';
+    verdictColor = 'var(--amber)';
+    subtitle = 'Your answers show multiple documented fraud indicators. This does not mean with certainty it was a scam — but the pattern is consistent with pig butchering operations. Filing a report costs nothing and creates a legal record regardless of what you ultimately determine.';
+  } else {
+    verdict = 'Some Risk Factors Present.';
+    verdictClass = 'verdict-possible';
+    verdictColor = 'var(--blue)';
+    subtitle = 'Your answers show fewer fraud indicators than a typical pig butchering case. However, if you are unable to withdraw your funds, that changes the analysis significantly — please revisit question 4.';
+  }
+
+  const flagsHtml = quizFlags.length > 0
+    ? '<div class="verdict-flags">' +
+      '<h4>What Your Answers Revealed</h4>' +
+      quizFlags.map(f => '<div class="verdict-flag-item">' + f + '</div>').join('') +
+      '</div>' : '';
+
+  const ctaHtml = pct >= 0.35
+    ? '<div class="verdict-cta">' +
+      '<p style="font-size:14px; color:var(--text-muted); margin-bottom:1rem;">The next step is to file a report. It is free, takes 20 minutes, and creates the legal foundation for any future recovery.</p>' +
+      '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">' +
+      '<button class="btn btn-teal" onclick="switchTab('protocol', document.querySelector('.nav-tabs button'))">Go to Recovery Protocol</button>' +
+      '<button class="btn btn-ghost" onclick="switchTab('quiz', document.querySelector('.nav-tabs button:last-child')); startQuiz()">Retake Quiz</button>' +
+      '</div></div>' : '';
+
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('quiz-result').innerHTML =
+    '<div class="verdict-result ' + verdictClass + '">' +
+    '<div class="verdict-score">' + total + ' / ' + maxScore + ' fraud indicators</div>' +
+    '<div class="verdict-title" style="color:' + verdictColor + '">' + verdict + '</div>' +
+    '<p class="verdict-subtitle" style="color:var(--text-muted);">' + subtitle + '</p>' +
+    '</div>' +
+    flagsHtml +
+    ctaHtml;
+}
+
+
+// ===== STEP COUNTER =====
+function updateStepCounter() {
+  const done = document.querySelectorAll('.step.done').length;
+  const total = document.querySelectorAll('.step').length;
+  const el = document.getElementById('steps-completed');
+  const bar = document.getElementById('steps-progress');
+  if (el) el.innerHTML = done + ' <span style="font-size:1rem; color:var(--text-muted);">of ' + total + '</span>';
+  if (bar) bar.style.width = (total > 0 ? (done/total*100) : 0) + '%';
+}
+const _origToggleStep = toggleStep;
+function toggleStep(id) {
+  document.getElementById(id).classList.toggle('done');
+  updateStepCounter();
+}
+
+// ===== SESSION STORAGE =====
+function saveFields() {
+  const ids = ['f-name','f-location','f-email','f-phone','f-amount',
+                'f-platform','f-url','f-date','f-freeze','f-wallet',
+                'f-recruit','f-bank','f-ic3'];
+  const data = {};
+  ids.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
+  try { sessionStorage.setItem('cfr_fields', JSON.stringify(data)); } catch(e) {}
+}
+function restoreFields() {
+  try {
+    const saved = sessionStorage.getItem('cfr_fields');
+    if (!saved) return;
+    const data = JSON.parse(saved);
+    Object.entries(data).forEach(([id, val]) => {
+      const el = document.getElementById(id);
+      if (el && val) el.value = val;
+    });
+    updateLetters();
+  } catch(e) {}
+}
+
+// ===== STEP FILTER =====
+function filterSteps(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('.step').forEach(step => {
+    if (type === 'all') { step.style.display = ''; return; }
+    const badge = step.querySelector('.priority-badge');
+    if (!badge) { step.style.display = 'none'; return; }
+    const text = badge.textContent.toLowerCase();
+    const show =
+      (type === 'now' && (text.includes('today') || text.includes('first'))) ||
+      (type === 'week' && (text.includes('48') || text.includes('72') || text.includes('week'))) ||
+      (type === 'ongoing' && (text.includes('ongoing') || text.includes('warn')));
+    step.style.display = show ? '' : 'none';
+  });
+}
+
+// ===== SHARE QUIZ RESULT =====
+function shareQuizResult(pct) {
+  const SITE_URL = 'https://caraabrown.github.io/cryptofraudrecovery/';
+  const verdict = pct >= 0.65 ? 'confirmed it was a scam'
+    : pct >= 0.35 ? 'found significant fraud indicators'
+    : 'found some risk factors';
+  const msg = 'I took the Pig Butchering Scam Detection Quiz — it ' + verdict + '. Free quiz + recovery toolkit: ' + SITE_URL;
+  if (navigator.share) {
+    navigator.share({ text: msg, url: SITE_URL });
+  } else {
+    navigator.clipboard.writeText(msg).then(() => {
+      alert('Result copied — paste anywhere to share.');
+    });
+  }
+}
+
+// ===== WELCOME BANNER =====
+function dismissBanner() {
+  const b = document.getElementById('welcome-banner');
+  if (b) b.style.display = 'none';
+  try { localStorage.setItem('cfr_banner_dismissed', '1'); } catch(e) {}
+}
+function initBanner() {
+  try {
+    if (localStorage.getItem('cfr_banner_dismissed') === '1') {
+      const b = document.getElementById('welcome-banner');
+      if (b) b.style.display = 'none';
+    }
+  } catch(e) {}
+}
+
+// ===== AGENCY LINKS helper =====
+const agencyURLs = {
+  'text-ic3': 'https://ic3.gov',
+  'text-ftc': 'https://reportfraud.ftc.gov',
+  'text-dfpi': 'https://dfpi.ca.gov/submit-a-complaint/',
+  'text-cashapp': 'https://cash.app/help'
+};
+
+// ===== DOMContentLoaded INIT =====
+
+// ===== STEP ACCORDION =====
+function toggleStepAccordion(id) {
+  const step = document.getElementById(id);
+  const isOpen = step.classList.contains('open');
+  // Close all steps
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('open'));
+  // Open this one if it was closed
+  if (!isOpen) {
+    step.classList.add('open');
+    step.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function openNextIncompleteStep() {
+  const steps = document.querySelectorAll('.step');
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('open'));
+  for (let step of steps) {
+    if (!step.classList.contains('done')) {
+      step.classList.add('open');
+      break;
+    }
+  }
+}
+
+// Override toggleStep to also advance accordion
+const _baseToggleStep = toggleStep;
+function toggleStep(id) {
+  const step = document.getElementById(id);
+  const wasDone = step.classList.contains('done');
+  step.classList.toggle('done');
+  updateStepCounter();
+  if (!wasDone) {
+    // Just marked done — open the next incomplete step
+    setTimeout(openNextIncompleteStep, 300);
+  }
+}
+
+// On protocol tab open, open the first incomplete step
+const _origSwitchTab = switchTab;
+switchTab = function(id, btn) {
+  _origSwitchTab(id, btn);
+  if (id === 'protocol') {
+    setTimeout(openNextIncompleteStep, 50);
+  }
+};
+
+// Open first step by default on load
+document.addEventListener('DOMContentLoaded', function() {
+  restoreFields();
+  updateStepCounter();
+  initBanner();
+  openNextIncompleteStep();
+  const msgEl = document.getElementById('share-msg-text');
+  if (msgEl && !msgEl.textContent.trim() && typeof shareMsgs !== 'undefined') {
+    msgEl.textContent = shareMsgs[0];
+  }
+});
+
+
 
 // Initialize letters with placeholders
 updateLetters();
