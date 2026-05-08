@@ -2429,16 +2429,11 @@ const SITE_URL = 'https://caraabrown.github.io/cryptofraudrecovery/';
 const SITE_TITLE = 'Crypto Fraud Recovery Toolkit — Free Pig Butchering Victim Guide';
 
 const shareMsgs = [
-  // 0 Neutral
-  'Found this free toolkit for crypto fraud victims — step-by-step protocol, government report templates, blockchain forensics guide, and a downloadable checklist. No signup, no cost. Share with anyone who needs it.\n\n' + SITE_URL,
-  // 1 Personal
-  'I was scammed in a pig butchering crypto scheme. Instead of staying silent, I built a free recovery toolkit. IC3, FTC, CFTC, SEC, DFPI, FBI — pre-written letters, blockchain forensics guide, and a printable checklist. Free. For anyone who needs it.\n\n' + SITE_URL,
-  // 2 Informational
-  'Pig butchering scams stole $5.8 billion from Americans in 2024. Most victims don't know where to start. This free toolkit walks you through every federal and state agency filing — in order — with pre-written letters and a printable checklist.\n\n' + SITE_URL,
-  // 3 Technical
-  'After being targeted by a fake crypto exchange, I used browser dev tools to confirm the trading was completely simulated — ECharts visualization, no real market. Then filed with IC3, FTC, CFTC, SEC, DFPI, and FBI in one day. Full forensics guide here — free.\n\n' + SITE_URL,
-  // 4 Group chat
-  'Found this — thought it might be useful for anyone dealing with something similar. Free toolkit, no signup.\n\n' + SITE_URL
+  "Found this free toolkit for crypto fraud victims — step-by-step protocol, government report templates, blockchain forensics guide, and a downloadable checklist. No signup, no cost. Share with anyone who needs it.\n\n" + SITE_URL,
+  "I was scammed in a pig butchering crypto scheme. Instead of staying silent, I built a free recovery toolkit. IC3, FTC, CFTC, SEC, DFPI, FBI — pre-written letters, blockchain forensics guide, and a printable checklist. Free. For anyone who needs it.\n\n" + SITE_URL,
+  "Pig butchering scams stole $5.8 billion from Americans in 2024. Most victims don't know where to start. This free toolkit walks you through every federal and state agency filing — in order — with pre-written letters and a printable checklist.\n\n" + SITE_URL,
+  "After being targeted by a fake crypto exchange, I used browser dev tools to confirm the trading was completely simulated — ECharts visualization, no real market. Then filed with IC3, FTC, CFTC, SEC, DFPI, and FBI in one day. Full forensics guide here — free.\n\n" + SITE_URL,
+  "Found this — thought it might be useful for anyone dealing with something similar. Free toolkit, no signup.\n\n" + SITE_URL
 ];
 
 let currentMsgIndex = 0;
@@ -2757,17 +2752,14 @@ function showQuizResult() {
   document.getElementById('quiz-container').style.display = 'none';
   document.getElementById('quiz-restart-wrap').style.display = 'block';
 
-  let verdict, verdictClass, verdictColor, subtitle;
+  let verdict, verdictClass, verdictColor, subtitle, extraHtml = '';
 
   if (pct >= 0.65) {
     verdict = 'This Was a Scam.';
     verdictClass = 'verdict-confirmed';
     verdictColor = 'var(--coral)';
-    subtitle = 'Based on your answers, the platform you used matches confirmed pig butchering fraud patterns documented by the FBI, FTC, and INTERPOL. This is not your fault. These operations are sophisticated, deliberate, and run by organized criminal networks. What happened to you happens to doctors, lawyers, engineers, and experienced investors every day.</p>
-    <div style="margin-top:1rem; padding:10px 16px; background:rgba(255,92,92,0.08); border:1px solid rgba(255,92,92,0.3); border-radius:8px; font-size:13px; color:var(--coral); text-align:left;">
-      <strong>Warning:</strong> Now that you know it was a scam, you may be contacted by "recovery services" offering to get your money back for a fee. This is a second scam targeting the same victims. This toolkit is free. No one associated with it will ever charge you anything.
-    </div>
-    <p style="display:none;">';
+    subtitle = 'Based on your answers, the platform you used matches confirmed pig butchering fraud patterns documented by the FBI, FTC, and INTERPOL. This is not your fault. These operations are sophisticated, deliberate, and run by organized criminal networks. What happened to you happens to doctors, lawyers, engineers, and experienced investors every day.';
+    extraHtml = '<div style="margin-top:1rem; padding:10px 16px; background:rgba(255,92,92,0.08); border:1px solid rgba(255,92,92,0.3); border-radius:8px; font-size:13px; color:#ff5c5c; text-align:left;"><strong>Warning:</strong> Now that you know it was a scam, you may be contacted by &quot;recovery services&quot; offering to get your money back for a fee. This is a second scam targeting the same victims. This toolkit is free. No one associated with it will ever charge you anything.</div>';
   } else if (pct >= 0.35) {
     verdict = 'Significant Fraud Indicators Present.';
     verdictClass = 'verdict-likely';
@@ -2786,167 +2778,136 @@ function showQuizResult() {
       quizFlags.map(f => '<div class="verdict-flag-item">' + f + '</div>').join('') +
       '</div>' : '';
 
-  const ctaHtml = pct >= 0.35
-    ? '<div class="verdict-cta">' +
-      '<p style="font-size:14px; color:var(--text-muted); margin-bottom:1rem;">The next step is to file a report. It is free, takes 20 minutes, and creates the legal foundation for any future recovery.</p>' +
-      '<div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">' +
-      '<button class="btn btn-teal" onclick="switchTab('protocol', document.querySelector('.nav-tabs button'))">Go to Recovery Protocol</button>' +
-      '<button class="btn btn-ghost" onclick="switchTab('quiz', document.querySelector('.nav-tabs button:last-child')); startQuiz()">Retake Quiz</button>' +
-      '</div></div>' : '';
+  // Build CTA buttons using DOM to avoid quote nesting issues
+  let ctaHtml = '';
+  if (pct >= 0.35) {
+    const cta = document.createElement('div');
+    cta.className = 'verdict-cta';
+    cta.innerHTML = '<p style="font-size:14px;color:var(--text-muted);margin-bottom:1rem;">The next step is to file a report. It is free, takes 20 minutes, and creates the legal foundation for any future recovery.</p>';
+    const btnRow = document.createElement('div');
+    btnRow.style.cssText = 'display:flex;gap:10px;justify-content:center;flex-wrap:wrap;';
+    const b1 = document.createElement('button');
+    b1.className = 'btn btn-teal';
+    b1.textContent = 'Go to Recovery Protocol';
+    b1.onclick = function() { var btns = document.querySelectorAll('.nav-tabs button'); switchTab('protocol', btns[0]); };
+    const b2 = document.createElement('button');
+    b2.className = 'btn btn-ghost';
+    b2.textContent = 'Retake Quiz';
+    b2.onclick = function() { var btns = document.querySelectorAll('.nav-tabs button'); switchTab('quiz', btns[btns.length-1]); startQuiz(); };
+    const b3 = document.createElement('button');
+    b3.className = 'btn btn-ghost';
+    b3.style.fontSize = '12px';
+    b3.textContent = 'Share My Result';
+    b3.onclick = function() { shareQuizResult(pct); };
+    btnRow.appendChild(b1);
+    btnRow.appendChild(b2);
+    btnRow.appendChild(b3);
+    cta.appendChild(btnRow);
+    ctaHtml = cta.outerHTML;
+  }
 
-  document.getElementById('quiz-result').style.display = 'block';
-  document.getElementById('quiz-result').innerHTML =
-    '<div class="verdict-result ' + verdictClass + '">' +
-    '<div class="verdict-score">' + total + ' / ' + maxScore + ' fraud indicators</div>' +
-    '<div class="verdict-title" style="color:' + verdictColor + '">' + verdict + '</div>' +
-    '<p class="verdict-subtitle" style="color:var(--text-muted);">' + subtitle + '</p>' +
-    '</div>' +
-    flagsHtml +
-    ctaHtml;
-}
+  const resultEl = document.getElementById('quiz-result');
+  resultEl.style.display = 'block';
 
+  const resultDiv = document.createElement('div');
+  resultDiv.className = 'verdict-result ' + verdictClass;
 
-// ===== STEP COUNTER =====
-function updateStepCounter() {
-  const done = document.querySelectorAll('.step.done').length;
-  const total = document.querySelectorAll('.step').length;
-  const el = document.getElementById('steps-completed');
-  const bar = document.getElementById('steps-progress');
-  if (el) el.innerHTML = done + ' <span style="font-size:1rem; color:var(--text-muted);">of ' + total + '</span>';
-  if (bar) bar.style.width = (total > 0 ? (done/total*100) : 0) + '%';
-}
-const _origToggleStep = toggleStep;
-function toggleStep(id) {
-  document.getElementById(id).classList.toggle('done');
-  updateStepCounter();
+  const scoreDiv = document.createElement('div');
+  scoreDiv.className = 'verdict-score';
+  scoreDiv.textContent = total + ' / ' + maxScore + ' fraud indicators';
+
+  const titleDiv = document.createElement('div');
+  titleDiv.className = 'verdict-title';
+  titleDiv.style.color = verdictColor;
+  titleDiv.textContent = verdict;
+
+  const subP = document.createElement('p');
+  subP.className = 'verdict-subtitle';
+  subP.style.color = 'var(--text-muted)';
+  subP.textContent = subtitle;
+
+  resultDiv.appendChild(scoreDiv);
+  resultDiv.appendChild(titleDiv);
+  resultDiv.appendChild(subP);
+  if (extraHtml) {
+    const extra = document.createElement('div');
+    extra.innerHTML = extraHtml;
+    resultDiv.appendChild(extra.firstChild || extra);
+  }
+
+  resultEl.innerHTML = '';
+  resultEl.appendChild(resultDiv);
+  if (flagsHtml) {
+    const flagsDiv = document.createElement('div');
+    flagsDiv.innerHTML = flagsHtml;
+    resultEl.appendChild(flagsDiv.firstChild || flagsDiv);
+  }
+  if (ctaHtml) {
+    const ctaDiv = document.createElement('div');
+    ctaDiv.innerHTML = ctaHtml;
+    resultEl.appendChild(ctaDiv.firstChild || ctaDiv);
+  }
 }
 
 // ===== SESSION STORAGE =====
 function saveFields() {
-  const ids = ['f-name','f-location','f-email','f-phone','f-amount',
-                'f-platform','f-url','f-date','f-freeze','f-wallet',
-                'f-recruit','f-bank','f-ic3'];
-  const data = {};
-  ids.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
+  var ids = ['f-name','f-location','f-email','f-phone','f-amount',
+    'f-platform','f-url','f-date','f-freeze','f-wallet','f-recruit','f-bank','f-ic3'];
+  var data = {};
+  ids.forEach(function(id) { var el = document.getElementById(id); if (el) data[id] = el.value; });
   try { sessionStorage.setItem('cfr_fields', JSON.stringify(data)); } catch(e) {}
 }
 function restoreFields() {
   try {
-    const saved = sessionStorage.getItem('cfr_fields');
+    var saved = sessionStorage.getItem('cfr_fields');
     if (!saved) return;
-    const data = JSON.parse(saved);
-    Object.entries(data).forEach(([id, val]) => {
-      const el = document.getElementById(id);
-      if (el && val) el.value = val;
+    var data = JSON.parse(saved);
+    Object.keys(data).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && data[id]) el.value = data[id];
     });
     updateLetters();
   } catch(e) {}
 }
 
+// ===== STEP COUNTER =====
+function updateStepCounter() {
+  var done = document.querySelectorAll('.step.done').length;
+  var total = document.querySelectorAll('.step').length;
+  var el = document.getElementById('steps-completed');
+  var bar = document.getElementById('steps-progress');
+  if (el) el.innerHTML = done + ' <span style="font-size:1rem;color:var(--text-muted);">of ' + total + '</span>';
+  if (bar) bar.style.width = (total > 0 ? (done / total * 100) : 0) + '%';
+}
+
 // ===== STEP FILTER =====
 function filterSteps(type, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
   if (btn) btn.classList.add('active');
-  document.querySelectorAll('.step').forEach(step => {
+  document.querySelectorAll('.step').forEach(function(step) {
     if (type === 'all') { step.style.display = ''; return; }
-    const badge = step.querySelector('.priority-badge');
+    var badge = step.querySelector('.priority-badge');
     if (!badge) { step.style.display = 'none'; return; }
-    const text = badge.textContent.toLowerCase();
-    const show =
-      (type === 'now' && (text.includes('today') || text.includes('first'))) ||
-      (type === 'week' && (text.includes('48') || text.includes('72') || text.includes('week'))) ||
-      (type === 'ongoing' && (text.includes('ongoing') || text.includes('warn')));
+    var text = badge.textContent.toLowerCase();
+    var show =
+      (type === 'now' && (text.indexOf('today') > -1 || text.indexOf('first') > -1)) ||
+      (type === 'week' && (text.indexOf('48') > -1 || text.indexOf('72') > -1 || text.indexOf('week') > -1)) ||
+      (type === 'ongoing' && (text.indexOf('ongoing') > -1 || text.indexOf('warn') > -1));
     step.style.display = show ? '' : 'none';
   });
 }
 
-// ===== SHARE QUIZ RESULT =====
-function shareQuizResult(pct) {
-  const SITE_URL = 'https://caraabrown.github.io/cryptofraudrecovery/';
-  const verdict = pct >= 0.65 ? 'confirmed it was a scam'
-    : pct >= 0.35 ? 'found significant fraud indicators'
-    : 'found some risk factors';
-  const msg = 'I took the Pig Butchering Scam Detection Quiz — it ' + verdict + '. Free quiz + recovery toolkit: ' + SITE_URL;
-  if (navigator.share) {
-    navigator.share({ text: msg, url: SITE_URL });
-  } else {
-    navigator.clipboard.writeText(msg).then(() => {
-      alert('Result copied — paste anywhere to share.');
-    });
-  }
-}
-
-// ===== WELCOME BANNER =====
-function dismissBanner() {
-  const b = document.getElementById('welcome-banner');
-  if (b) b.style.display = 'none';
-  try { localStorage.setItem('cfr_banner_dismissed', '1'); } catch(e) {}
-}
-function initBanner() {
-  try {
-    if (localStorage.getItem('cfr_banner_dismissed') === '1') {
-      const b = document.getElementById('welcome-banner');
-      if (b) b.style.display = 'none';
-    }
-  } catch(e) {}
-}
-
-// ===== AGENCY LINKS helper =====
-const agencyURLs = {
-  'text-ic3': 'https://ic3.gov',
-  'text-ftc': 'https://reportfraud.ftc.gov',
-  'text-dfpi': 'https://dfpi.ca.gov/submit-a-complaint/',
-  'text-cashapp': 'https://cash.app/help'
-};
-
-// ===== DOMContentLoaded INIT =====
-
-
-// ===== HOME CARD NAVIGATION =====
-function goToProtocol() {
-  // Switch to protocol tab
-  const protocolBtn = document.querySelector('.nav-tabs button');
-  switchTab('protocol', protocolBtn);
-  // Scroll so the main content top (below sticky header) is in view
-  setTimeout(function() {
-    const main = document.querySelector('.main');
-    if (main) {
-      const headerH = document.querySelector('.site-header').offsetHeight;
-      const y = main.getBoundingClientRect().top + window.scrollY - headerH - 8;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  }, 60);
-}
-
-function goToQuiz() {
-  // Find the quiz button — it's the second-to-last nav button
-  const btns = document.querySelectorAll('.nav-tabs button');
-  const quizBtn = btns[btns.length - 1];
-  switchTab('quiz', quizBtn);
-  setTimeout(function() {
-    const main = document.querySelector('.main');
-    if (main) {
-      const headerH = document.querySelector('.site-header').offsetHeight;
-      const y = main.getBoundingClientRect().top + window.scrollY - headerH - 8;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  }, 60);
-}
-
 // ===== STEP ACCORDION =====
 function toggleStepAccordion(id, event) {
-  // Don't intercept clicks on links, buttons, inputs, or code inside the body
   if (event && event.target) {
-    const t = event.target;
+    var t = event.target;
     if (t.tagName === 'A' || t.tagName === 'BUTTON' || t.tagName === 'INPUT' ||
-        t.tagName === 'TEXTAREA' || t.tagName === 'CODE' || t.tagName === 'LABEL' ||
-        t.closest('a') || t.closest('button') || t.closest('.step-body')) {
-      return;
-    }
+        t.tagName === 'CODE' || t.tagName === 'LABEL' ||
+        t.closest('a') || t.closest('.step-body')) return;
   }
-  const step = document.getElementById(id);
-  const isOpen = step.classList.contains('open');
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('open'));
+  var step = document.getElementById(id);
+  var isOpen = step.classList.contains('open');
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('open'); });
   if (!isOpen) {
     step.classList.add('open');
     step.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -2954,56 +2915,107 @@ function toggleStepAccordion(id, event) {
 }
 
 function openNextIncompleteStep() {
-  const steps = document.querySelectorAll('.step');
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('open'));
-  for (let step of steps) {
-    if (!step.classList.contains('done')) {
-      step.classList.add('open');
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('open'); });
+  var steps = document.querySelectorAll('.step');
+  for (var i = 0; i < steps.length; i++) {
+    if (!steps[i].classList.contains('done')) {
+      steps[i].classList.add('open');
       break;
     }
   }
 }
 
-// Override toggleStep to also advance accordion
-const _baseToggleStep = toggleStep;
-function toggleStep(id) {
-  const step = document.getElementById(id);
-  const wasDone = step.classList.contains('done');
+var _baseToggle = toggleStep;
+toggleStep = function(id) {
+  var step = document.getElementById(id);
+  var wasDone = step.classList.contains('done');
   step.classList.toggle('done');
   updateStepCounter();
-  if (!wasDone) {
-    // Just marked done — open the next incomplete step
-    setTimeout(openNextIncompleteStep, 300);
-  }
+  if (!wasDone) setTimeout(openNextIncompleteStep, 300);
+};
+
+// ===== HOME NAVIGATION =====
+function goToProtocol() {
+  var btn = document.querySelector('.nav-tabs button');
+  switchTab('protocol', btn);
+  setTimeout(function() {
+    var main = document.querySelector('.main');
+    if (main) {
+      var headerH = document.querySelector('.site-header').offsetHeight;
+      var y = main.getBoundingClientRect().top + window.scrollY - headerH - 8;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, 60);
 }
 
-// On protocol tab open, open the first incomplete step
-const _origSwitchTab = switchTab;
+function goToQuiz() {
+  var btns = document.querySelectorAll('.nav-tabs button');
+  var quizBtn = btns[btns.length - 1];
+  switchTab('quiz', quizBtn);
+  setTimeout(function() {
+    var main = document.querySelector('.main');
+    if (main) {
+      var headerH = document.querySelector('.site-header').offsetHeight;
+      var y = main.getBoundingClientRect().top + window.scrollY - headerH - 8;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, 60);
+}
+
+// ===== WELCOME BANNER =====
+function dismissBanner() {
+  var b = document.getElementById('welcome-banner');
+  if (b) b.style.display = 'none';
+  try { localStorage.setItem('cfr_banner_dismissed', '1'); } catch(e) {}
+}
+function initBanner() {
+  try {
+    if (localStorage.getItem('cfr_banner_dismissed') === '1') {
+      var b = document.getElementById('welcome-banner');
+      if (b) b.style.display = 'none';
+    }
+  } catch(e) {}
+}
+
+// ===== CHECKLIST =====
+function printChecklist() { window.print(); }
+function downloadChecklist() {
+  var printable = document.getElementById('checklist-printable');
+  if (!printable) return;
+  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Fraud Recovery Checklist</title></head><body>' + printable.innerHTML + '</body></html>';
+  var blob = new Blob([html], {type: 'text/html'});
+  var u = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = u; a.download = 'fraud-recovery-checklist.html'; a.click();
+  URL.revokeObjectURL(u);
+}
+
+// ===== SWITCH TAB OVERRIDE =====
+var _origSwitchTab = switchTab;
 switchTab = function(id, btn) {
-  _origSwitchTab(id, btn);
-  if (id === 'protocol') {
-    setTimeout(openNextIncompleteStep, 50);
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.nav-tabs button').forEach(function(b) { b.classList.remove('active'); });
+  var panel = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('active');
+  if (btn) btn.classList.add('active');
+  if (id === 'letters') { updateLetters(); }
+  if (id === 'congress') { updateCongress(); }
+  if (id === 'quiz') { setTimeout(startQuiz, 50); }
+  if (id === 'protocol') { setTimeout(openNextIncompleteStep, 50); }
+  if (id === 'share') {
+    var el = document.getElementById('share-msg-text');
+    if (el && !el.textContent.trim()) el.textContent = shareMsgs[0];
   }
 };
 
-// Open first step by default on load
+// ===== INIT =====
 document.addEventListener('DOMContentLoaded', function() {
   restoreFields();
+  updateLetters();
+  updateCongress();
   updateStepCounter();
   initBanner();
   openNextIncompleteStep();
-  const msgEl = document.getElementById('share-msg-text');
-  if (msgEl && !msgEl.textContent.trim() && typeof shareMsgs !== 'undefined') {
-    msgEl.textContent = shareMsgs[0];
-  }
+  var msgEl = document.getElementById('share-msg-text');
+  if (msgEl) msgEl.textContent = shareMsgs[0];
 });
-
-
-
-// Initialize letters with placeholders
-updateLetters();
-updateCongress();
-
-</script>
-</body>
-</html>
