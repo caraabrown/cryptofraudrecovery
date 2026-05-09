@@ -969,34 +969,37 @@ body {
 
 <!-- ============ TAB 1: PROTOCOL ============ -->
 <div id="tab-protocol" class="tab-panel active">
+
+  <!-- STOP DEPOSITS ALERT — permanent, not a phase -->
+  <div style="background:rgba(255,92,92,0.08); border:1px solid rgba(255,92,92,0.35); border-radius:12px; padding:14px 18px; margin-bottom:1.5rem; display:flex; align-items:flex-start; gap:14px;">
+    <div style="font-size:1.4rem; line-height:1; flex-shrink:0; margin-top:2px;">&#9888;</div>
+    <div>
+      <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--coral); letter-spacing:0.04em; margin-bottom:4px;">STOP ALL DEPOSITS NOW — Before Anything Else</div>
+      <div style="font-size:13.5px; color:var(--text-muted); line-height:1.7;">Do not send any more money to the platform. Any "tax," "verification fee," or "insurance" required to unfreeze your funds <strong style="color:var(--text)">is an additional theft mechanism</strong> — not a real fee. There is no payment that will unlock your funds. Stop contact with the recruiter immediately.</div>
+    </div>
+  </div>
+
   <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
     <div>
-      <h2>Recovery Protocol</h2>
-      <p>Click a step number to mark it complete. Work through these in order — sequence matters.</p>
+      <h2>Recovery Workflow</h2>
+      <p>Eight phases in sequence. Click each number to mark a phase complete. Phase 4 expands to show every filing step.</p>
     </div>
     <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:12px 20px; text-align:center; flex-shrink:0;">
-      <div id="steps-completed" style="font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--teal); line-height:1;">0 <span style="font-size:1rem; color:var(--text-muted);">of 13</span></div>
-      <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:2px;">Steps Completed</div>
+      <div id="steps-completed" style="font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--teal); line-height:1;">0 <span style="font-size:1rem; color:var(--text-muted);">of 8</span></div>
+      <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-top:2px;">Phases Complete</div>
       <div style="margin-top:8px; height:4px; background:var(--bg); border-radius:4px; overflow:hidden;">
         <div id="steps-progress" style="height:4px; background:var(--teal); width:0%; transition:width 0.4s ease; border-radius:4px;"></div>
       </div>
     </div>
   </div>
 
-  <div class="notice-bar" style="margin-bottom:1.25rem;">
-    This is not legal advice. Consult an attorney for your specific situation. Filing reports costs nothing and creates the legal paper trail that makes recovery possible. &nbsp;|&nbsp; <strong>This toolkit is 100% free.</strong> No fees are collected or associated with this site.
-  </div>
-
-  <div style="display:flex; gap:8px; margin-bottom:1rem; flex-wrap:wrap; align-items:center;">
-    <span style="font-size:12px; color:var(--text-muted);">Show:</span>
-    <button class="filter-btn active" onclick="filterSteps('all', this)">All Steps</button>
-    <button class="filter-btn" onclick="filterSteps('now', this)">Do This Today</button>
-    <button class="filter-btn" onclick="filterSteps('week', this)">Within 48–72 Hours</button>
-    <button class="filter-btn" onclick="filterSteps('ongoing', this)">Ongoing</button>
+  <div class="notice-bar" style="margin-bottom:1.5rem;">
+    This is not legal advice. Consult an attorney for your specific situation. All filings are free. &nbsp;|&nbsp; <strong>This toolkit is 100% free.</strong> If anyone charges you to use it, that is a scam.
   </div>
 
   <div class="steps">
 
+    <!-- PHASE 1 -->
     <div class="step" id="s1">
       <div class="step-header" onclick="toggleStepAccordion('s1', event)">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s1')">
@@ -1004,16 +1007,21 @@ body {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-now">Do This Today</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~2 min</span></div>
-          <div class="step-title">Stop All Deposits Immediately</div>
+          <div class="step-meta"><span class="priority-badge priority-now">Start Here</span></div>
+          <div class="step-title">Determine If It Was a Scam &amp; Learn About Your Scam Type</div>
         </div>
         <span class="step-chevron">&#9660;</span>
       </div>
       <div class="step-body">
-        <p>Do not send any more money to the platform under any circumstances. Scammers will attempt to collect more by telling you that you need to pay "taxes," "verification fees," or "insurance" to unlock your frozen funds. <strong style="color:var(--coral)">These are additional theft mechanisms.</strong> There is no fee that will unlock your funds.</p>
+        <p>If you're not certain what happened to you, take the quiz first. It identifies your specific situation based on FBI and FTC-documented patterns and tells you which agencies have jurisdiction. Then review the Scam Types page to understand the full operation you were targeted by — knowing the name and mechanics helps you use the right language in every filing.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:1rem;">
+          <button class="btn btn-teal" onclick="switchTab('quiz', document.querySelectorAll('.nav-tabs button')[8])">Take the Quiz &rarr;</button>
+          <button class="btn btn-ghost" onclick="switchTab('scamtypes', document.querySelectorAll('.nav-tabs button')[5])">View Scam Types &rarr;</button>
+        </div>
       </div>
     </div>
 
+    <!-- PHASE 2 -->
     <div class="step" id="s2">
       <div class="step-header" onclick="toggleStepAccordion('s2', event)">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s2')">
@@ -1021,42 +1029,20 @@ body {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-now">Do This Today</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~30–60 min</span></div>
-          <div class="step-title">Preserve All Evidence — Screenshot Everything</div>
+          <div class="step-meta"><span class="priority-badge priority-now">Do Before Filing</span></div>
+          <div class="step-title">Gather All Evidence</div>
         </div>
         <span class="step-chevron">&#9660;</span>
       </div>
       <div class="step-body">
-        <p>Do this before the site disappears. Screenshot and save with timestamps visible:</p>
-        <ul>
-          <li><strong style="color:var(--text)">Account balance screens</strong> — before and after any withdrawal attempt</li>
-          <li><strong style="color:var(--text)">Trading interface</strong> — CALL/PUT buttons, countdown timers, fake price charts, any "profit" display</li>
-          <li><strong style="color:var(--text)">Deposit history</strong> — every deposit record the platform shows</li>
-          <li><strong style="color:var(--text)">Withdrawal rejection / fee screens</strong> — any message blocking your withdrawal</li>
-          <li><strong style="color:var(--text)">Account information page</strong> — showing your account number, user ID, and any identifiers</li>
-          <li><strong style="color:var(--text)">ALL recruitment messages</strong> — WhatsApp, WeChat, Telegram, Signal, text messages. Screenshot the full conversation with timestamp/carrier bar visible.</li>
-          <li><strong style="color:var(--text)">Text messages showing wallet addresses</strong> — the wallet address sent to you may differ from what the site shows later. Both are evidence.</li>
-          <li><strong style="color:var(--text)">Group chats</strong> — screenshot the full chat history including member lists</li>
-          <li><strong style="color:var(--text)">The platform URL in your browser bar</strong> — visible in every screenshot</li>
-        </ul>
-        <div style="margin-top:1rem; padding:12px 14px; background:rgba(0,201,167,0.06); border:1px solid var(--border-teal); border-radius:8px;">
-          <strong style="color:var(--teal); font-size:13px;">Preserve original files — not screenshots of screenshots.</strong>
-          <p style="font-size:13px; margin-top:6px; color:var(--text-muted);">If someone else has evidence on their phone, have them AirDrop or share the original files. Original files contain EXIF metadata (timestamps, device info) that is court-admissible.</p>
-        </div>
-        <div style="margin-top:1rem; padding:12px 14px; background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:8px;">
-          <strong style="color:var(--amber); font-size:13px;">HOW TO GET THE PLATFORM'S SOURCE CODE</strong>
-          <ol style="font-size:13px; color:var(--text-muted); padding-left:1.2rem; margin-top:8px;">
-            <li>Open the platform page in Chrome or Firefox</li>
-            <li>Press <strong style="color:var(--text)">F12</strong> (Windows) or <strong style="color:var(--text)">Cmd+Option+I</strong> (Mac)</li>
-            <li>Click the <strong style="color:var(--text)">Console</strong> tab</li>
-            <li>Type: <code style="color:var(--teal); background:var(--bg); padding:2px 6px; border-radius:4px;">copy(document.documentElement.outerHTML)</code></li>
-            <li>Press Enter — paste into a text editor and save as .txt</li>
-            <li><strong style="color:var(--text)">Paste the code into Claude.ai for analysis</strong></li>
-          </ol>
+        <p>Collect and preserve everything before the platform disappears — sites can go offline without warning. You need screenshots of every page, all recruitment conversations, the platform's source code, blockchain transaction records, and domain research. The Gather Evidence tab walks you through each type step by step with exact instructions for every device and app.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:1rem;">
+          <button class="btn btn-teal" onclick="switchTab('evidence', document.querySelectorAll('.nav-tabs button')[1])">Go to Gather Evidence &rarr;</button>
         </div>
       </div>
     </div>
 
+    <!-- PHASE 3 -->
     <div class="step" id="s3">
       <div class="step-header" onclick="toggleStepAccordion('s3', event)">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s3')">
@@ -1064,16 +1050,20 @@ body {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-now">File First</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~20 min</span></div>
-          <div class="step-title">File with the FBI — IC3.gov</div>
+          <div class="step-meta"><span class="priority-badge priority-now">Before Filing</span></div>
+          <div class="step-title">Build Your Reports</div>
         </div>
         <span class="step-chevron">&#9660;</span>
       </div>
       <div class="step-body">
-        <p>Go to <a href="https://ic3.gov" target="_blank">ic3.gov</a> and file your complaint. This takes 15–20 minutes. Save your IC3 complaint number — you will use it in every other filing. For losses over $100,000, the IC3 Recovery Asset Team can initiate emergency freeze procedures.</p>
+        <p>Fill in your case information once — name, location, platform name, wallet address, IC3 number, and how you were recruited. Pre-written letters for the FBI, FTC, CA DFPI, your bank, and Cash App auto-populate from that single form. Edit each one directly before copying. Having these ready before you start filing saves significant time and ensures consistent detail across every submission.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:1rem;">
+          <button class="btn btn-teal" onclick="switchTab('letters', document.querySelectorAll('.nav-tabs button')[2])">Build Your Reports &rarr;</button>
+        </div>
       </div>
     </div>
 
+    <!-- PHASE 4 — FILING, expandable with sub-steps -->
     <div class="step" id="s4">
       <div class="step-header" onclick="toggleStepAccordion('s4', event)">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s4')">
@@ -1081,16 +1071,114 @@ body {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~10 min</span></div>
-          <div class="step-title">File with the FTC</div>
+          <div class="step-meta"><span class="priority-badge priority-week">File in This Order</span></div>
+          <div class="step-title">File Your Claims — 9 Agencies &amp; Institutions</div>
         </div>
         <span class="step-chevron">&#9660;</span>
       </div>
       <div class="step-body">
-        <p>Go to <strong style="color:var(--teal)">reportfraud.ftc.gov</strong> — select Investment Scam → Cryptocurrency. Reference your IC3 number. The FTC aggregates reports to identify patterns and can issue consumer alerts.</p>
+        <p style="margin-bottom:1.25rem;">File in this order — each submission strengthens the next. Your IC3 number from filing 4A goes into every subsequent claim. Have your completed letters from Phase 3 and your evidence folder ready before you begin.</p>
+
+        <div style="display:flex; flex-direction:column; gap:10px;">
+
+          <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px 16px; border-left:3px solid var(--coral);">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4A — FBI / IC3 <span style="font-size:10px; background:rgba(255,92,92,0.15); color:var(--coral); border:1px solid rgba(255,92,92,0.3); padding:2px 8px; border-radius:10px; font-family:'IBM Plex Sans',sans-serif; font-weight:600; letter-spacing:0.06em; vertical-align:middle; margin-left:6px;">FILE FIRST</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;">File at ic3.gov. Takes 15–20 min. <strong style="color:var(--text)">Save your Submission ID</strong> — it goes into every other claim. For losses over $100K, the IC3 Recovery Asset Team can initiate emergency freeze procedures.</div>
+              </div>
+              <a href="https://www.ic3.gov/Home/FileComplaint" target="_blank" class="btn btn-teal" style="font-size:11px; flex-shrink:0; text-decoration:none;">Open IC3 &rarr;</a>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4B — FTC <span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0;">~10 min</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;">reportfraud.ftc.gov — select Investment Scam → Cryptocurrency. Reference your IC3 number. The FTC aggregates reports to identify patterns and can issue consumer alerts that warn others.</div>
+              </div>
+              <a href="https://reportfraud.ftc.gov" target="_blank" class="btn btn-ghost" style="font-size:11px; flex-shrink:0; text-decoration:none;">Open FTC &rarr;</a>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4C — State Regulator <span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0;">~15 min</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;"><strong style="color:var(--text)">California:</strong> dfpi.ca.gov/submit-a-complaint (DFPI) + oag.ca.gov (AG). <strong style="color:var(--text)">Other states:</strong> Search "[your state] financial consumer complaint." Include IC3 number.</div>
+              </div>
+              <a href="https://dfpi.ca.gov/submit-a-complaint/" target="_blank" class="btn btn-ghost" style="font-size:11px; flex-shrink:0; text-decoration:none;">CA DFPI &rarr;</a>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4D — CFTC <span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0;">~30 min · 2 separate filings</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;">The CFTC has direct jurisdiction over unregistered binary options and crypto commodity fraud. File <strong style="color:var(--text)">both</strong>: the Whistleblower form first, then the Consumer Complaint. Check: "Fraudulent representations," "Digital currencies," "Binary option," "Should be registered but is not."</div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px; flex-shrink:0;">
+                <a href="https://www.cftc.gov/ConsumerProtection/FileaTip/index.htm" target="_blank" class="btn btn-ghost" style="font-size:11px; text-decoration:none;">Whistleblower &rarr;</a>
+                <a href="https://forms.cftc.gov/Forms/Complaint/Screen1" target="_blank" class="btn btn-ghost" style="font-size:11px; text-decoration:none;">Consumer &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4E — SEC <span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0;">~10 min</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;">If the platform promised investment returns, that is an unregistered securities offering. Select "Investment Fraud." Include your IC3 and CFTC complaint numbers. The SEC coordinates with CFTC on overlapping cases.</div>
+              </div>
+              <a href="https://www.sec.gov/submit-tip-or-complaint/tips-complaints-resources/report-suspected-securities-fraud-or-wrongdoing" target="_blank" class="btn btn-ghost" style="font-size:11px; flex-shrink:0; text-decoration:none;">Open SEC &rarr;</a>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4F — Chainabuse + Google Safe Browsing <span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0;">~15 min</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;">Submit every wallet address to chainabuse.com (select "Pig Butchering Scam" — submit each address separately). Submit all platform domains to Google Safe Browsing. Public flags trigger exchange-level screening and protect future victims.</div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px; flex-shrink:0;">
+                <a href="https://www.chainabuse.com/report" target="_blank" class="btn btn-ghost" style="font-size:11px; text-decoration:none;">Chainabuse &rarr;</a>
+                <a href="https://safebrowsing.google.com/safebrowsing/report_phish/" target="_blank" class="btn btn-ghost" style="font-size:11px; text-decoration:none;">Google &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4G — Your Bank or Payment App <span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0;">~20 min</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;">Call your bank's fraud line immediately. Use the phrase <strong style="color:var(--text)">"fraud-induced transfer"</strong> — not just "unauthorized." For Zelle disputes, this language triggers a different review process. For Cash App or Venmo, report in-app first then escalate. Provide your IC3 number. Use the pre-written letter from Phase 3.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4H — Your Crypto Exchange <span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0;">~15 min</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;">If you used Coinbase, Kraken, Binance.US, or another licensed exchange: contact their fraud/compliance team with the destination wallet address and your TX hash. Exchanges have blockchain tracing tools and can flag wallets and cooperate with law enforcement on request.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:var(--bg3); border:1px solid rgba(0,201,167,0.2); border-radius:10px; padding:14px 16px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+              <div>
+                <div style="font-family:'Oswald',sans-serif; font-size:0.95rem; font-weight:500; color:var(--text); letter-spacing:0.03em;">4I — Consider a Crypto Fraud Attorney <span style="font-size:10px; color:var(--text-muted); font-family:'IBM Plex Sans',sans-serif; font-weight:400; letter-spacing:0;">For losses above $5,000</span></div>
+                <div style="font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.6;">Many crypto fraud attorneys work on contingency — no fee unless they recover funds. Civil litigation, DOJ forfeiture proceedings, and OFAC-related claims are all viable paths. The DOJ's November 2025 Scam Center Strike Force has seized over $400M; victims can file claims against those assets.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
 
+    <!-- PHASE 5 -->
     <div class="step" id="s5">
       <div class="step-header" onclick="toggleStepAccordion('s5', event)">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s5')">
@@ -1098,16 +1186,20 @@ body {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~15 min</span></div>
-          <div class="step-title">File with Your State Regulator</div>
+          <div class="step-meta"><span class="priority-badge priority-ongoing">After Filing</span></div>
+          <div class="step-title">Track Your Progress — Print the Checklist with All Claim Numbers</div>
         </div>
         <span class="step-chevron">&#9660;</span>
       </div>
       <div class="step-body">
-        <p>California residents: file at <a href="https://dfpi.ca.gov/submit-a-complaint/" target="_blank">dfpi.ca.gov/submit-a-complaint</a> (DFPI) and <a href="https://oag.ca.gov" target="_blank">oag.ca.gov</a> (Attorney General). Other states: search "[your state] financial consumer complaint." Include your IC3 number in all filings.</p>
+        <p>The Checklist tab has a printable record sheet with fields for every complaint reference number (IC3, FTC, CFTC, DFPI, SEC, bank claim, etc.) plus a full action checklist. Print it or save it as a PDF. Keep it with your evidence folder. You will reference these numbers whenever a follow-up is needed.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:1rem;">
+          <button class="btn btn-teal" onclick="switchTab('checklist', document.querySelectorAll('.nav-tabs button')[4])">Go to Checklist &rarr;</button>
+        </div>
       </div>
     </div>
 
+    <!-- PHASE 6 -->
     <div class="step" id="s6">
       <div class="step-header" onclick="toggleStepAccordion('s6', event)">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s6')">
@@ -1115,21 +1207,20 @@ body {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~30 min</span></div>
-          <div class="step-title">File with the CFTC — Binary Options &amp; Crypto Fraud</div>
+          <div class="step-meta"><span class="priority-badge priority-ongoing">Ongoing</span></div>
+          <div class="step-title">Demand Action from Lawmakers</div>
         </div>
         <span class="step-chevron">&#9660;</span>
       </div>
       <div class="step-body">
-        <p>The CFTC has direct jurisdiction over unregistered binary options platforms and crypto commodity fraud. File two separate complaints:</p>
-        <ul>
-          <li><strong style="color:var(--text)">CFTC Whistleblower:</strong> <a href="https://www.cftc.gov/ConsumerProtection/FileaTip/index.htm" target="_blank">cftc.gov/ConsumerProtection/FileaTip</a></li>
-          <li><strong style="color:var(--text)">CFTC Consumer Complaint:</strong> <a href="https://forms.cftc.gov/Forms/Complaint/Screen1" target="_blank">forms.cftc.gov/Forms/Complaint</a></li>
-        </ul>
-        <p style="margin-top:0.5rem;">Check these boxes: "Fraudulent representations," "Cheating or fraud after deposit," "Should be registered but is not," "Option on a commodity," "Digital currencies," and "Binary option." Reference your IC3 number in both filings.</p>
+        <p>Congressional pressure has driven every major enforcement action against these operations. The Demand Action tab generates personalized letters to the Senate Banking Committee, House Financial Services Committee, your state's federal senators, and key agencies. Volume matters — 500 constituent letters create urgency that individual complaints do not.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:1rem;">
+          <button class="btn btn-teal" onclick="switchTab('congress', document.querySelectorAll('.nav-tabs button')[3])">Go to Demand Action &rarr;</button>
+        </div>
       </div>
     </div>
 
+    <!-- PHASE 7 -->
     <div class="step" id="s7">
       <div class="step-header" onclick="toggleStepAccordion('s7', event)">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s7')">
@@ -1137,20 +1228,20 @@ body {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~10 min</span></div>
-          <div class="step-title">File with the SEC — Securities Fraud</div>
+          <div class="step-meta"><span class="priority-badge priority-ongoing">Ongoing</span></div>
+          <div class="step-title">Share This Toolkit with Others</div>
         </div>
         <span class="step-chevron">&#9660;</span>
       </div>
       <div class="step-body">
-        <p>If the platform represented itself as an investment opportunity with promised returns, that may constitute an unregistered securities offering. File at:</p>
-        <ul>
-          <li><a href="https://www.sec.gov/submit-tip-or-complaint/tips-complaints-resources/report-suspected-securities-fraud-or-wrongdoing" target="_blank">SEC Tips, Complaints &amp; Referrals</a></li>
-        </ul>
-        <p style="margin-top:0.5rem;">Select "Investment Fraud." Include your IC3 and CFTC complaint numbers.</p>
+        <p>Every share protects a potential victim. The Share tab has pre-written messages for five different contexts — including a version designed for group chats where you don't want to announce you were scammed. Share links for X, Facebook, LinkedIn, Reddit, WhatsApp, Telegram, Signal, email, and SMS are ready to go. You can also share just the link directly.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:1rem;">
+          <button class="btn btn-teal" onclick="switchTab('share', document.querySelectorAll('.nav-tabs button')[7])">Go to Share &rarr;</button>
+        </div>
       </div>
     </div>
 
+    <!-- PHASE 8 -->
     <div class="step" id="s8">
       <div class="step-header" onclick="toggleStepAccordion('s8', event)">
         <div class="step-num" onclick="event.stopPropagation(); toggleStep('s8')">
@@ -1158,105 +1249,16 @@ body {
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-week">This Week</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~15 min</span></div>
-          <div class="step-title">Report All Wallet Addresses to Chainabuse.com</div>
+          <div class="step-meta"><span class="priority-badge priority-ongoing">Help Others</span></div>
+          <div class="step-title">Provide Feedback on This Toolkit</div>
         </div>
         <span class="step-chevron">&#9660;</span>
       </div>
       <div class="step-body">
-        <p>Go to <a href="https://www.chainabuse.com/report" target="_blank">chainabuse.com/report</a> and submit every crypto wallet address associated with the fraud. Submit each address separately. Select category: <strong style="color:var(--text)">Pig Butchering Scam</strong>. Include the platform name, domains, and your IC3/CFTC reference numbers.</p>
-        <p style="margin-top:0.5rem;">Also submit all platform domains to <a href="https://safebrowsing.google.com/safebrowsing/report_phish/" target="_blank">Google Safe Browsing</a> to protect future victims.</p>
-      </div>
-    </div>
-
-    <div class="step" id="s9">
-      <div class="step-header" onclick="toggleStepAccordion('s9', event)">
-        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s9')">
-          <span class="num-label">9</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>What worked? What didn't? Which agencies responded? Your experience directly improves this toolkit for the next victim. The Feedback tab has a short form — outcomes, broken links, missing steps, and what you'd change. Every submission helps.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:1rem;">
+          <button class="btn btn-teal" onclick="switchTab('feedback', document.querySelectorAll('.nav-tabs button')[6])">Go to Feedback &rarr;</button>
         </div>
-        <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-week">Within 48 Hours</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~20 min</span></div>
-          <div class="step-title">Contact Your Bank or Payment App</div>
-        </div>
-        <span class="step-chevron">&#9660;</span>
-      </div>
-      <div class="step-body">
-        <p>If you sent funds via Zelle, wire transfer, or bank ACH: call your bank's fraud line immediately and request a fraud dispute. If you used Cash App, Venmo, or PayPal: use their in-app fraud reporting. Provide your IC3 complaint number. Use the pre-written letter in the "Build Your Reports" tab.</p>
-      </div>
-    </div>
-
-    <div class="step" id="s10">
-      <div class="step-header" onclick="toggleStepAccordion('s10', event)">
-        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s10')">
-          <span class="num-label">10</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-week">Within 72 Hours</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~15 min</span></div>
-          <div class="step-title">Contact Your Crypto Exchange</div>
-        </div>
-        <span class="step-chevron">&#9660;</span>
-      </div>
-      <div class="step-body">
-        <p>If you used Coinbase, Kraken, Binance.US, or another licensed exchange: contact their fraud/compliance team with the destination wallet address and your TX hash. Exchanges have blockchain tracing tools and may be able to flag the receiving wallet or cooperate with law enforcement.</p>
-      </div>
-    </div>
-
-    <div class="step" id="s11">
-      <div class="step-header" onclick="toggleStepAccordion('s11', event)">
-        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s11')">
-          <span class="num-label">11</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-week">This Week</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~varies</span></div>
-          <div class="step-title">Consider a Crypto Fraud Attorney</div>
-        </div>
-        <span class="step-chevron">&#9660;</span>
-      </div>
-      <div class="step-body">
-        <p>For losses above $5,000, consult a crypto fraud or asset recovery attorney. Many work on contingency. Civil litigation, DOJ forfeiture proceedings, and OFAC-related claims are all viable paths. The DOJ's November 2025 Scam Center Strike Force has seized over $400M — victims can file claims against seized assets.</p>
-      </div>
-    </div>
-
-    <div class="step" id="s12">
-      <div class="step-header" onclick="toggleStepAccordion('s12', event)">
-        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s12')">
-          <span class="num-label">12</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-ongoing">Ongoing</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~10 min</span></div>
-          <div class="step-title">Write to Your Elected Officials</div>
-        </div>
-        <span class="step-chevron">&#9660;</span>
-      </div>
-      <div class="step-body">
-        <p>Congressional pressure has driven every major enforcement action against these operations. Use the "Demand Action" tab to generate personalized letters to the Senate Banking Committee, House Financial Services Committee, and your state's federal senators.</p>
-      </div>
-    </div>
-
-    <div class="step" id="s13">
-      <div class="step-header" onclick="toggleStepAccordion('s13', event)">
-        <div class="step-num" onclick="event.stopPropagation(); toggleStep('s13')">
-          <span class="num-label">13</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="min-width:0;">
-          <div class="step-meta"><span class="priority-badge priority-ongoing">Warn Others</span><span style="font-size:10px; color:var(--text-muted); background:var(--bg3); padding:2px 8px; border-radius:10px;">~10 min</span></div>
-          <div class="step-title">Report the Platform Publicly</div>
-        </div>
-        <span class="step-chevron">&#9660;</span>
-      </div>
-      <div class="step-body">
-        <p>Submit the scam website to these resources to protect others:</p>
-        <ul>
-          <li><strong style="color:var(--text)">Google Safe Browsing:</strong> safebrowsing.google.com/safebrowsing/report_phish</li>
-          <li><strong style="color:var(--text)">AARP Fraud Watch:</strong> aarp.org/fraudwatchnetwork</li>
-          <li><strong style="color:var(--text)">Global Anti-Scam:</strong> globalantiscam.org</li>
-          <li><strong style="color:var(--text)">Chainabuse:</strong> chainabuse.com (for wallet addresses)</li>
-        </ul>
       </div>
     </div>
 
@@ -2542,10 +2544,10 @@ function restoreFields() {
   } catch(e) {}
 }
 
-// ===== STEP COUNTER =====
+// ===== STEP COUNTER — scoped to protocol tab =====
 function updateStepCounter() {
-  var done = document.querySelectorAll('.step.done').length;
-  var total = document.querySelectorAll('.step').length;
+  var done = document.querySelectorAll('#tab-protocol .step.done').length;
+  var total = document.querySelectorAll('#tab-protocol .step').length;
   var el = document.getElementById('steps-completed');
   var bar = document.getElementById('steps-progress');
   if (el) el.innerHTML = done + ' <span style="font-size:1rem;color:var(--text-muted);">of ' + total + '</span>';
@@ -2587,8 +2589,8 @@ function toggleStepAccordion(id, event) {
 }
 
 function openNextIncompleteStep() {
-  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('open'); });
-  var steps = document.querySelectorAll('.step');
+  var steps = document.querySelectorAll('#tab-protocol .step');
+  steps.forEach(function(s) { s.classList.remove('open'); });
   for (var i = 0; i < steps.length; i++) {
     if (!steps[i].classList.contains('done')) {
       steps[i].classList.add('open');
